@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ui-kit/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["fashion-ecommerce/ui-kit"],
   "// targets": "to see all targets run: nx show project ui-kit --web",
   "targets": {}
 }
