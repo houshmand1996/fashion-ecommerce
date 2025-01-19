@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fashion-ecommerce/ui-kit": ["libs/ui-kit/src/index.ts"]
+      "@code-dudes/fashion-ecommerce/ui-kit ": ["libs/ui-kit/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
