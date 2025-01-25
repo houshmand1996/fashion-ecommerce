@@ -1,6 +1,8 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
-
+const {
+  uiBaselinePlugin,
+} = require('../../dist/libs/ui-baseline/index.mjs');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -13,5 +15,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [uiBaselinePlugin  ],
 };
