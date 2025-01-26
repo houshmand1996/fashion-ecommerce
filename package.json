@@ -5,13 +5,22 @@
   "scripts": {
     "web-app": "npx nx dev web-app",
     "web-app:build": "npx nx build web-app",
-    "web-app:targets": "npx nx show project web-app"
+    "web-app:targets": "npx nx show project web-app",
+    "storybook": "nx storybook storybook",
+    "generate-icon": "nx generate-graphics icon && nx generate-monochromes icon",
+    "icon:story": "nx storybook icon",
+    "ui:build": " nx build ui-baseline  --configuration=development"
   },
   "private": true,
   "dependencies": {
+    "@storybook/addon-themes": "^8.5.1",
+    "@storybook/react-vite": "^8.5.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "next": "14.2.16",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -26,10 +35,15 @@
     "@nx/next": "20.3.2",
     "@nx/playwright": "20.3.2",
     "@nx/react": "20.3.2",
+    "@nx/storybook": "^20.3.3",
     "@nx/vite": "20.3.2",
     "@nx/web": "20.3.2",
     "@nx/workspace": "20.3.2",
     "@playwright/test": "^1.36.0",
+    "@storybook/addon-essentials": "^8.5.1",
+    "@storybook/addon-interactions": "^8.5.1",
+    "@storybook/core-server": "^8.5.1",
+    "@storybook/react": "^8.5.1",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",

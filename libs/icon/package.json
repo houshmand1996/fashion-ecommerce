@@ -1,0 +1,16 @@
+{
+  "name": "@code-dudes/fashion-ecommerce/icon",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@nx/storybook": "^20.3.3",
+    "@storybook/react-vite": "^8.5.1"
+  }
+}
