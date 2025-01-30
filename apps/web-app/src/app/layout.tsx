@@ -1,4 +1,6 @@
+import { Input } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import './global.css';
+import { AiIcon } from '@code-dudes/fashion-ecommerce/icon';
 
 export const metadata = {
   title: 'Welcome to web-app',
@@ -12,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+
+      <body className='text-primary-default'>
+        <Input value={'dddddddddddddd'}/>
+        <AiIcon className='text-primary-default  text-[200px]' />
+        {children}
+        </body>
     </html>
   );
 }
