@@ -14,16 +14,24 @@ export const defaultTheme: Theme = {
   },
 
   background: {
-    primary: '#1B1C2E',
-    secondary: 'linear-gradient(270deg, #261935 5.95%, #1D273F 96.43%)',
-    tertiary:
-      'linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #D9D9D9 36.52%)',
-    normal: '249, 250, 252',
-    alternative: '255, 255, 255',
+    primary: '#A8715A',
+    secondary: '#DD8560',
+    GrayScale: {
+      Title_Active: '#000',
+      Body: '#333333',
+      Label: '#555555',
+      Placeholder: '#888888',
+      Line: '#e0cfba',
+      Input_bg: '#F9F9F9',
+      Background: '#F8F0E7',
+      off_white: '#FCFCFC',
+    },
   },
 
   border: {
-    primary: '54, 56, 66',
+    GrayScale: {
+      Line: '217,219,233',
+    },
   },
   accent: {
     primary: '68, 119, 228',

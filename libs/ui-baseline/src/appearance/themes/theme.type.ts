@@ -6,12 +6,21 @@ export interface Theme {
   background: {
     primary: string;
     secondary: string;
-    tertiary: string;
-    normal: string;
-    alternative: string;
+    GrayScale: {
+      Title_Active: string;
+      Body: string;
+      Label: string;
+      Placeholder: string;
+      Line: string;
+      Input_bg: string;
+      Background: string;
+      off_white: string;
+    };
   };
   border: {
-    primary: string;
+    GrayScale: {
+      Line: string;
+    };
   };
 
   text: {
