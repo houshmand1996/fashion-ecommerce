@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "apps/web-app/tailwind.config.js",
+    "css": "apps/web-app/src/app/global.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@fashion-ecommerce/ui-kit/components",
+    "utils": "@fashion-ecommerce/ui-kit/utils"
+  },
+  "iconLibrary": "lucide"
+}
