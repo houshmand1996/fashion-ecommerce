@@ -14,7 +14,7 @@ export default function Index() {
               <span className="text-primary-default"> Hello there, ali</span>
               Welcome web-app 👋
             </h1>
-            <Input className="bg-GrayScale_offWhite text-primary border-GrayScale_Input " />
+            <Input className="bg-primary border-Line " />
           </div>
         </div>
       </div>
