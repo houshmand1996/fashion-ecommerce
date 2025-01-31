@@ -45,16 +45,16 @@ export const colorUtilities = {
 
     background: 'var(--background)',
   },
-  '.bg-offWhite': {
+  '.bg-white': {
     '--tw-bg-opacity': '1',
 
-    background: 'rgba(var(--offWhite),var(--tw-bg-opacity))',
+    background: 'rgba(var(--white),var(--tw-bg-opacity))',
   },
 
   //border classes
-  '.border-Line': {
+  '.border-line': {
     '--tw-bg-opacity': '1',
 
-    borderColor: 'rgba(var(--borderLine),var(--tw-bg-opacity))',
+    borderColor: 'rgba(var(--border),var(--tw-bg-opacity))',
   },
 };

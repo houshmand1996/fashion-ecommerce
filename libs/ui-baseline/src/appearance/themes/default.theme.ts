@@ -11,6 +11,6 @@ export const defaultTheme: Theme = {
   line: '224,207,186',
   input: '249,249,249',
   background: '217,219,233',
-  offWhite: '252,252,252',
-  borderLine: '217,219,233',
+  white: '252,252,252',
+  border: '217,219,233',
 };
