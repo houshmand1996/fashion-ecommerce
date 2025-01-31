@@ -14,12 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-
-      <body className='text-primary-default'>
-        <Input value={'dddddddddddddd'}/>
-        <AiIcon className='text-primary-default  text-[200px]' />
-        {children}
-        </body>
+      <body className="text-primary-default bg-blue-400">{children}</body>
     </html>
   );
 }
