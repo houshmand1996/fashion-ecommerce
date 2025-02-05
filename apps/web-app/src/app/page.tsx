@@ -1,4 +1,4 @@
-import { Input } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -14,7 +14,7 @@ export default function Index() {
               <span className="text-primary-default"> Hello there, ali</span>
               Welcome web-app 👋
             </h1>
-            <Input className="bg-primary border-Line " />
+            <Button>button</Button>
           </div>
         </div>
       </div>

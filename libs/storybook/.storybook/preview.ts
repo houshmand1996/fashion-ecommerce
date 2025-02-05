@@ -1,5 +1,5 @@
-import '../tailwind.base.css';
 // .storybook/preview.js
+import '../tailwind.base.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
 
 /* snipped for brevity */
