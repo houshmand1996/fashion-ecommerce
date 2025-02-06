@@ -20,7 +20,7 @@
         "libs/ui-baseline/src/index.ts"
       ],
       "@code-dudes/fashion-ecommerce/ui-kit ": ["libs/ui-kit/src/index.ts"],
-      "@code-dudes/@fashion-ecommerce/storybook": ["libs/storybook/src/index.ts"]
+      "@fashion-ecommerce/storybook": ["libs/storybook/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

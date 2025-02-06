@@ -2,25 +2,22 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: [
-    // '../../icon/src/**/*.stories.@(js|jsx|ts|tsx)',
-    '../../ui-kit/src/components/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../../ui-kit/src/components/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../../icon/src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-themes'
+    '@storybook/addon-themes',
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {
       builder: {
-        viteConfigPath: 'libs/storybook/vite.config.ts',
-      }
+        viteConfigPath: 'vite.config.ts',
+      },
     },
-  },
-  typescript:{
-    check:true,
-    reactDocgen:'react-docgen-typescript',
   },
 };
 

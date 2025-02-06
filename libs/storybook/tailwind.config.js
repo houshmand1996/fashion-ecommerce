@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
-const {
-  uiBaselinePlugin,
-} = require('../../dist/libs/ui-baseline/index.mjs');
+const { uiBaselinePlugin } = require('../../dist/libs/ui-baseline/index.mjs');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,17 +9,17 @@ module.exports = {
     join(
       __dirname,
       '../ui-kit',
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}',
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     join(
       __dirname,
       '../icon',
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}',
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     join(
       __dirname,
       '../web-app',
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}',
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],

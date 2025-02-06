@@ -5,7 +5,7 @@ import { useState } from 'react';
 import type { IconTabsPropType, IconType } from './icon-tabs.type';
 import { IconList } from '../list/icon-list.component';
 
-import * as taliIcons from '@tali/icon';
+import * as taliIcons from '@code-dudes/fashion-ecommerce/icon';
 
 const monochromeIcons = Object.fromEntries(
   Object.entries(taliIcons).filter(([key]) => key.endsWith('Icon')),
