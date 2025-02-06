@@ -4,6 +4,7 @@ const config: StorybookConfig = {
   stories: [
     '../src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
     '../../ui-kit/src/components/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../../icon/src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     '@storybook/addon-essentials',
