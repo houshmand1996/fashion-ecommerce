@@ -1,4 +1,10 @@
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import {
+  BackIcon,
+  NwarrowIcon,
+  BackwardArrowIcon,
+} from '@code-dudes/fashion-ecommerce/icon';
+const b = BackIcon;
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -14,7 +20,11 @@ export default function Index() {
               <span className="text-primary-default"> Hello there, ali</span>
               Welcome web-app 👋
             </h1>
-            <Button>button</Button>
+            <Button state={'secondary'} size={'sm'} className="gap">
+              <NwarrowIcon className="m-2 text-offWhite " />
+              button
+              <BackwardArrowIcon className="m-2 text-white" />
+            </Button>
           </div>
         </div>
       </div>

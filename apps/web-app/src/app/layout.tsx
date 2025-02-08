@@ -1,6 +1,4 @@
-import { Input } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import './global.css';
-import { AiIcon } from '@code-dudes/fashion-ecommerce/icon';
 
 export const metadata = {
   title: 'Welcome to web-app',
