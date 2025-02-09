@@ -5,12 +5,12 @@ export const buttonVariants = cva(
   {
     variants: {
       state: {
-        primary: 'bg-title text-offWhite',
+        primary: 'bg-title text-off-white',
         secondary: 'border-[1px] border-solid border-line text-title ',
       },
       size: {
-        sm: 'px-2 py-[30px] gap-2 backdrop-blur-[2px]',
-        md: 'px-3 py-[33px] gap-[10px]',
+        sm: 'py-2 px-[30px] gap-2 backdrop-blur-[2px]',
+        md: 'py-3 px-[33px] gap-[10px]',
         lg: 'py-5 px-[120px] gap-3',
       },
     },

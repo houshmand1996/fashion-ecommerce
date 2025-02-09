@@ -45,10 +45,10 @@ export const colorUtilities = {
 
     background: 'var(--background)',
   },
-  '.bg-offWhite': {
+  '.bg-off-white': {
     '--tw-bg-opacity': '1',
 
-    background: 'rgba(var(--offWhite),var(--tw-bg-opacity))',
+    background: 'rgba(var(--off-white),var(--tw-bg-opacity))',
   },
 
   //border classes
@@ -57,24 +57,29 @@ export const colorUtilities = {
 
     borderColor: 'rgba(var(--border),var(--tw-bg-opacity))',
   },
-  '.text-offWhite': {
+  '.text-off-white': {
     '--tw-bg-opacity': '1',
 
-    color: 'rgba(var(--offWhite),var(--tw-bg-opacity))',
+    color: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+  },
+  '.text-body': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--body),var(--tw-bg-opacity))',
   },
   '.text-title': {
     '--tw-bg-opacity': '1',
 
     color: 'rgba(var(--title),var(--tw-bg-opacity))',
   },
-  '.fill-offWhite': {
+  '.fill-off-white': {
     '--tw-bg-opacity': '1',
 
-    fill: 'rgba(var(--offWhite),var(--tw-bg-opacity))',
+    fill: 'rgba(var(--off-white),var(--tw-bg-opacity))',
   },
-  '.stroke-offWhite': {
+  '.stroke-off-white': {
     '--tw-bg-opacity': '1',
 
-    stroke: 'rgba(var(--offWhite),var(--tw-bg-opacity))',
+    stroke: 'rgba(var(--off-white),var(--tw-bg-opacity))',
   },
 };
