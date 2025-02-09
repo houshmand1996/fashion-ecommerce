@@ -1,10 +1,10 @@
 /* eslint-disable @nx/enforce-module-boundaries */
- 
+
 // * Import Types
 import type { FC } from 'react';
 import { useState } from 'react';
 
-import { Arrow1Icon } from '@code-dudes/fashion-ecommerce/icon';
+import { BackIcon } from '@code-dudes/fashion-ecommerce/icon';
 
 import * as Collapsible from '@radix-ui/react-collapsible';
 
@@ -19,9 +19,9 @@ export const HowToUseComponent: FC = () => {
             <h2 className="text-xl font-semibold mb-4">How to use ?</h2>
             <button className="inline-flex items-center justify-center rounded-full h-6 w-6 text-violet-700 bg-white hover:bg-violet-300 focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none shadow-md ">
               {open ? (
-                <Arrow1Icon />
+                <BackIcon />
               ) : (
-                <Arrow1Icon style={{ transform: 'rotate(180deg)' }} />
+                <BackIcon style={{ transform: 'rotate(180deg)' }} />
               )}
             </button>
           </div>

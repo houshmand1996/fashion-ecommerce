@@ -14,9 +14,17 @@ const replaceFillWithCurrentColor = (filePath) => {
 
     // Regular expression to find the 'fill' attribute and its value
     const fillRegex = /fill="[^"]*"/gi;
+    const strokeRegex = /stroke="[^"]*"/gi;
+    console.log(fillRegex, strokeRegex);
 
     // Replacing the 'fill' attribute with 'currentColor'
-    const updatedData = data.replace(fillRegex, 'fill="currentColor"');
+    const updatedFill = data.replace(fillRegex, 'fill="currentColor"');
+
+    const updatedData = updatedFill.replace(
+      strokeRegex,
+      'stroke="currentColor"'
+    );
+    console.log(updatedData, updatedFill);
 
     // Write the updated SVG back to the file
     fs.writeFile(filePath, updatedData, 'utf8', (err) => {

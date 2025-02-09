@@ -8,6 +8,7 @@ export interface Theme {
   line: string;
   input: string;
   background: string;
-  white: string;
+  'off-white': string;
   border: string;
+  header: string;
 }

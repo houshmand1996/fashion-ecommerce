@@ -45,10 +45,15 @@ export const colorUtilities = {
 
     background: 'var(--background)',
   },
-  '.bg-white': {
+  '.bg-off-white': {
     '--tw-bg-opacity': '1',
 
-    background: 'rgba(var(--white),var(--tw-bg-opacity))',
+    background: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+  },
+  '.bg-header': {
+    '--tw-bg-opacity': '1',
+
+    background: 'rgba(var(--header),var(--tw-bg-opacity))',
   },
 
   //border classes
@@ -56,5 +61,30 @@ export const colorUtilities = {
     '--tw-bg-opacity': '1',
 
     borderColor: 'rgba(var(--border),var(--tw-bg-opacity))',
+  },
+  '.text-off-white': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+  },
+  '.text-body': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--body),var(--tw-bg-opacity))',
+  },
+  '.text-title': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--title),var(--tw-bg-opacity))',
+  },
+  '.fill-off-white': {
+    '--tw-bg-opacity': '1',
+
+    fill: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+  },
+  '.stroke-off-white': {
+    '--tw-bg-opacity': '1',
+
+    stroke: 'rgba(var(--off-white),var(--tw-bg-opacity))',
   },
 };
