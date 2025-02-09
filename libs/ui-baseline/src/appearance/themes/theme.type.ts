@@ -10,4 +10,5 @@ export interface Theme {
   background: string;
   'off-white': string;
   border: string;
+  header: string;
 }

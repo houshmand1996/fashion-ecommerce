@@ -13,4 +13,5 @@ export const defaultTheme: Theme = {
   background: '217,219,233',
   'off-white': '252,252,252',
   border: '217,219,233',
+  header: '230,233,238',
 };

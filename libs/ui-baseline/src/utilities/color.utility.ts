@@ -50,6 +50,11 @@ export const colorUtilities = {
 
     background: 'rgba(var(--off-white),var(--tw-bg-opacity))',
   },
+  '.bg-header': {
+    '--tw-bg-opacity': '1',
+
+    background: 'rgba(var(--header),var(--tw-bg-opacity))',
+  },
 
   //border classes
   '.border-line': {
