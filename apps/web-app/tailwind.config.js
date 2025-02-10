@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        TenorSans: 'font-tenor',
+        TenorSans: ['Tenor Sans', 'sans-serif'],
       },
     },
   },

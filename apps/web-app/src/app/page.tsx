@@ -4,6 +4,14 @@ import {
   NwarrowIcon,
   BackwardArrowIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
+import { Poppins, Tenor_Sans } from 'next/font/google';
+import { cn } from 'libs/ui-kit/src/lib';
+const inter = Tenor_Sans({
+  weight: '400',
+  display: 'swap',
+  subsets: ['latin'],
+});
+
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -14,7 +22,7 @@ export default function Index() {
     <div>
       <div className="wrapper">
         <div className="container bg-secondary">
-          <div id="welcome">
+          <div id="welcome" className="flex flex-col">
             <h1>
               <span className="text-primary-default"> Hello there, ali</span>
               Welcome web-app 👋
@@ -24,6 +32,7 @@ export default function Index() {
               button
               <BackwardArrowIcon className="m-2 text-white" />
             </Button>
+            <div className="flex gap-20 w-full"></div>
           </div>
         </div>
       </div>
