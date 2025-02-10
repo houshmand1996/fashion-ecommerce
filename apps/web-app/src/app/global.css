@@ -1,7 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-  font-family: 'TenorSans';
-  src: 'https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap';
-}

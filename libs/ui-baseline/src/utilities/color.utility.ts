@@ -55,6 +55,11 @@ export const colorUtilities = {
 
     background: 'rgba(var(--header),var(--tw-bg-opacity))',
   },
+  '.bg-footer': {
+    '--tw-bg-opacity': '0.1',
+
+    background: 'rgba(var(--footer),var(--tw-bg-opacity))',
+  },
 
   //border classes
   '.border-line': {
@@ -76,6 +81,11 @@ export const colorUtilities = {
     '--tw-bg-opacity': '1',
 
     color: 'rgba(var(--title),var(--tw-bg-opacity))',
+  },
+  '.text-label': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--label),var(--tw-bg-opacity))',
   },
   '.fill-off-white': {
     '--tw-bg-opacity': '1',

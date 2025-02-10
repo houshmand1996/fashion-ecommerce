@@ -11,10 +11,8 @@ export default function Index() {
    * Note: The corresponding styles are in the ./index.tailwind file.
    */
   return (
-    <div>
-      <div className="wrapper">
         <div className="container bg-secondary">
-          <div id="welcome">
+          <div id="welcome" className="flex flex-col">
             <h1>
               <span className="text-primary-default"> Hello there, ali</span>
               Welcome web-app 👋
@@ -26,7 +24,5 @@ export default function Index() {
             </Button>
           </div>
         </div>
-      </div>
-    </div>
   );
 }
