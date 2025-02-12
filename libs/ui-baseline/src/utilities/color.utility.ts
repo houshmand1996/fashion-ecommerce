@@ -87,6 +87,11 @@ export const colorUtilities = {
 
     color: 'rgba(var(--label),var(--tw-bg-opacity))',
   },
+  '.text-primary': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--primary),var(--tw-bg-opacity))',
+  },
   '.fill-off-white': {
     '--tw-bg-opacity': '1',
 

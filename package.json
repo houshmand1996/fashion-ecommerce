@@ -7,7 +7,7 @@
     "web-app:build": "npx nx build web-app",
     "web-app:targets": "npx nx show project web-app",
     "storybook": "nx storybook storybook",
-    "generate-icon": "nx generate-graphics icon && nx generate-monochromes icon",
+    "icon": "nx generate-graphics icon && nx generate-monochromes icon",
     "icon:story": "nx storybook icon",
     "ui:build": " nx build ui-baseline  --configuration=development"
   },
