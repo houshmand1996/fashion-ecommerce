@@ -9,6 +9,7 @@ export { default as DoorToDoorDeliveryIcon } from './door-to-door-delivery.icon'
 export { default as DownIcon } from './down.icon';
 export { default as Ellipse61Icon } from './ellipse-61.icon';
 export { default as Ellipse62Icon } from './ellipse-62.icon';
+export { default as Ellipse68Icon } from './ellipse-68.icon';
 export { default as ExportIcon } from './export.icon';
 export { default as FilterIcon } from './filter.icon';
 export { default as ForwardArrowIcon } from './forward-arrow.icon';
@@ -22,6 +23,7 @@ export { default as ListviewIcon } from './listview.icon';
 export { default as LocationIcon } from './location.icon';
 export { default as LogoIcon } from './logo.icon';
 export { default as MenuIcon } from './menu.icon';
+export { default as MinusIcon } from './minus.icon';
 export { default as NwarrowIcon } from './nwarrow.icon';
 export { default as PlusIcon } from './plus.icon';
 export { default as SearrowIcon } from './searrow.icon';

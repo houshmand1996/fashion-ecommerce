@@ -1,28 +1,18 @@
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
-import {
-  BackIcon,
-  NwarrowIcon,
-  BackwardArrowIcon,
-} from '@code-dudes/fashion-ecommerce/icon';
+import { Cart } from '@code-dudes/fashion-ecommerce/web-app';
 export default function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.tailwind file.
-   */
   return (
-        <div className="container bg-secondary">
-          <div id="welcome" className="flex flex-col">
-            <h1>
-              <span className="text-primary-default"> Hello there, ali</span>
-              Welcome web-app 👋
-            </h1>
-            <Button state={'primary'} size={'sm'} className="gap">
-              <NwarrowIcon className="m-2 text-off-white " />
-              button
-              <BackwardArrowIcon className="m-2 text-white" />
-            </Button>
-          </div>
-        </div>
-  );
+<div className="container bg-secondary">
+      <div id="welcome" className="flex flex-col">
+        <h1>
+          <span className="text-primary-default"> Hello there, ali</span>
+          Welcome web-app 👋
+        </h1>
+        <Button state={'primary'} size={'sm'} className="gap">
+          button
+        </Button>
+        <Cart className="bg-slate-200" />
+      </div>
+    </div>
+);
 }
