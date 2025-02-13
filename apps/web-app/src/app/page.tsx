@@ -1,5 +1,5 @@
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
-import Cart from 'apps/web-app/components/cart/cart';
+import { Cart } from '@code-dudes/fashion-ecommerce/web-app';
 export default function Index() {
   return (
 <div className="container bg-secondary">

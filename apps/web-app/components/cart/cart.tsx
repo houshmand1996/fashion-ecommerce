@@ -7,7 +7,7 @@ import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import picture from 'apps/web-app/public/Recycle Boucle Knit Cardigan Pink.png';
 import Image from 'next/image';
 type cartProp = { className?: string };
-const Cart = ({ className }: cartProp) => {
+export const Cart = ({ className }: cartProp) => {
   return (
     <div className={cn('w-[313px] h-[134px] flex', className)}>
       <Image className="w-[100px] h-[133.33px]" src={picture} alt="" />
@@ -40,4 +40,3 @@ const Cart = ({ className }: cartProp) => {
     </div>
   );
 };
-export default Cart;
