@@ -3,7 +3,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { cn } from '../../lib';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import Image from 'next/image';
 type cartProp = { image: string; className?: string };
 export const Cart = ({ className, image }: cartProp) => {

@@ -1,0 +1,9 @@
+{
+  "name": "web-app-components",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web-app/components/src",
+  "projectType": "library",
+  "tags": ["code-dudes fashion-ecommerce web-app components"],
+  "// targets": "to see all targets run: nx show project web-app-components --web",
+  "targets": {}
+}

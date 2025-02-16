@@ -6,7 +6,7 @@ import {
   GridViewProduct,
   HomePageProduct,
   ListViewProduct,
-} from '@fashion-ecommerce/component';
+} from '@code-dudes/fashion-ecommerce/web-app/components';
 export default function Index() {
   const item = {
     name: '21WN',

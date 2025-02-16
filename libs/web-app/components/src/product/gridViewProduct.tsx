@@ -1,7 +1,7 @@
 import { HeartIcon } from '@code-dudes/fashion-ecommerce/icon';
 import Image from 'next/image';
 import { product } from './product.type';
-import { cn } from '../../lib';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 
 export const GridViewProduct = ({
   item,
