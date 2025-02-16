@@ -29,6 +29,7 @@ export { default as PlusIcon } from './plus.icon';
 export { default as SearrowIcon } from './searrow.icon';
 export { default as SearchIcon } from './search.icon';
 export { default as ShippingIcon } from './shipping.icon';
+export { default as StarIcon } from './star.icon';
 export { default as TagIcon } from './tag.icon';
 export { default as TwitterIcon } from './twitter.icon';
 export { default as UpIcon } from './up.icon';

@@ -67,6 +67,8 @@ export const colorUtilities = {
 
     borderColor: 'rgba(var(--border),var(--tw-bg-opacity))',
   },
+  //text classes
+
   '.text-off-white': {
     '--tw-bg-opacity': '1',
 
@@ -92,10 +94,26 @@ export const colorUtilities = {
 
     color: 'rgba(var(--primary),var(--tw-bg-opacity))',
   },
+  '.text-secondary': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--secondary),var(--tw-bg-opacity))',
+  },
+  '.text-border': {
+    '--tw-bg-opacity': '1',
+
+    color: 'rgba(var(--border),var(--tw-bg-opacity))',
+  },
+  //fill classes
   '.fill-off-white': {
     '--tw-bg-opacity': '1',
 
     fill: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+  },
+  '.fill-primary': {
+    '--tw-bg-opacity': '1',
+
+    fill: 'rgba(var(--primary),var(--tw-bg-opacity))',
   },
   '.stroke-off-white': {
     '--tw-bg-opacity': '1',

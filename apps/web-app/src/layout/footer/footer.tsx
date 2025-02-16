@@ -8,7 +8,7 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="absolute bottom-0  min-w-[375px] w-full h-[340px] bg-white flex flex-col flex-shrink-0 items-center ">
+    <footer className="  min-w-[375px] w-full h-[340px] bg-white flex flex-col flex-shrink-0 items-center ">
       <div className="w-full h-[70px] flex items-center ">
         <Link href={'https://twitter.com/'} className="">
           <TwitterIcon className="text-body w-6 h-6 ml-[106.5px]" />

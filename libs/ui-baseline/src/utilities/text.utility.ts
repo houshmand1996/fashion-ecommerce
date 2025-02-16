@@ -47,4 +47,16 @@ export const textUtility = {
     lineHeight: '1.84rem', // 24px
     'font-feature-settings': "'liga' off, 'clig' off",
   },
+  '.price': {
+    fontFamily: 'Tenor Sans',
+    fontWeight: '400', // normal
+    fontSize: '0.9375rem', // 15px
+    lineHeight: '1.5rem', // 24px
+  },
+  '.size': {
+    fontFamily: 'Tenor Sans',
+    fontWeight: '400', // normal
+    fontSize: '0.625rem', // 10px
+    lineHeight: '0.75rem', // 12px
+  },
 };
