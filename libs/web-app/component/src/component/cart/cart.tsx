@@ -3,14 +3,13 @@ import {
   MinusIcon,
   PlusIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
-import picture from 'apps/web-app/public/Recycle Boucle Knit Cardigan Pink.png';
+import { cn } from '../../lib';
 import Image from 'next/image';
-type cartProp = { className?: string };
-export const Cart = ({ className }: cartProp) => {
+type cartProp = { image: string; className?: string };
+export const Cart = ({ className, image }: cartProp) => {
   return (
     <div className={cn('w-[313px] h-[134px] flex', className)}>
-      <Image className="w-[100px] h-[133.33px]" src={picture} alt="" />
+      <Image className="w-[100px] h-[133.33px]" src={image} alt="" />
       <div className=" flex-col flex-grow inline-flex items-start gap-3 w-[201px] h-[116px] ml-[10.72px]">
         <div className="flex flex-col items-start gap-[6px]">
           <p className="w-[78px] h-5 uppercase text-title subtitle-medium">
