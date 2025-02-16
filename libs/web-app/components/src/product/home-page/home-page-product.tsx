@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { FC } from 'react';
-import { HomePageProductProps } from './home-page-product.type';
+import { HomePageProductProps } from '../product.type';
 
-
-
-
-export const HomePageProduct:FC<HomePageProductProps> = ({
+export const HomePageProduct: FC<HomePageProductProps> = ({
   item,
   className,
-} ) => {
+}) => {
   const { image, name, price } = item;
   return (
     <div

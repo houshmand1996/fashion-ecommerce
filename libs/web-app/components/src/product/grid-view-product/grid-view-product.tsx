@@ -1,15 +1,10 @@
 import { HeartIcon } from '@code-dudes/fashion-ecommerce/icon';
 import Image from 'next/image';
-import { product } from './product.type';
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { FC } from 'react';
+import { FullProductProps } from '../product.type';
 
-export const GridViewProduct = ({
-  item,
-  className,
-}: {
-  item: product & { details: string };
-  className: string;
-}) => {
+export const GridViewProduct: FC<FullProductProps> = ({ item, className }) => {
   const { image, name, price, details } = item;
   return (
     <div className={cn('inline-flex flex-col item-start gap-2', className)}>

@@ -1,14 +1,12 @@
 import { Ellipse68Icon, StarIcon } from '@code-dudes/fashion-ecommerce/icon';
 import Image from 'next/image';
-import { product } from './product.type';
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { FC } from 'react';
+import { ListViewProductProps } from '../product.type';
 
-export const ListViewProduct = ({
+export const ListViewProduct: FC<ListViewProductProps> = ({
   item,
   className,
-}: {
-  item: product & { details: string; rating: string | number };
-  className?: string;
 }) => {
   const { image, name, price, details, rating } = item;
   return (
