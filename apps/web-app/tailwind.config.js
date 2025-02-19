@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         TenorSans: ['Tenor Sans', 'sans-serif'],
       },
+      width: {
+        page: '375px',
+      },
     },
   },
 

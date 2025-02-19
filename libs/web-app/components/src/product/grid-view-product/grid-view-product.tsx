@@ -14,7 +14,7 @@ export const GridViewProduct: FC<FullProductProps> = ({ item, className }) => {
       </div>
       <div className="flex pl-1 flex-col items-start gap-1">
         <div className="flex w-[159px] flex-col items-start body-small">
-          <p className="w-[34px] h-[15px] text-title ">{name}</p>
+          <p className="w-[34px] h-[15px] text-black ">{name}</p>
           <p className="w-[157px] h-[14px] text-label"> {details}</p>
         </div>
         <p className="text-primary price">{price}</p>

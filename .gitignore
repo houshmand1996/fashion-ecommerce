@@ -37,7 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
 .nx/cache
 .nx/workspace-data
 
@@ -49,3 +48,4 @@ vite.config.*.timestamp*
 vitest.config.*.timestamp*
 
 storybook-static
+libs/icon/src/monochromes/generated-components/

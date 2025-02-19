@@ -18,7 +18,7 @@ export const HomePageProduct: FC<HomePageProductProps> = ({
       <Image alt="" src={image} className="w-[165px] h-[200px] flex-shrink-0" />
       <div className="flex w-[151px] flex-col items-center">
         <p className="body-small text-body text-center">{name}</p>
-        <p className="price text-primary">{price}</p>
+        <p className="price text-secondary">${price}</p>
       </div>
     </div>
   );

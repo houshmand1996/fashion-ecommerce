@@ -85,8 +85,12 @@ export const uiBaselinePlugin = plugin(
 
     // Add custom variant for light mode
     addVariant('light', '.light &');
+    addVariant('first-child', '&>*:first-child');
+    addVariant('last-child', '&>*:last-child');
+    addVariant(`even-child`, '&>*:nth-child(even)');
+    addVariant(`odd-child`, '&>*:nth-child(odd)');
   },
   {
     darkMode: 'class', // Specify dark mode strategy
-  },
+  }
 );

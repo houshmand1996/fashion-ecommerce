@@ -30,7 +30,7 @@ export const Footer = () => {
         08:00 - 22:00 - Everyday
       </div>
       <SeparatorIcon className="w-60 h-[9px] text-label mb-2" />
-      <div className="w-full w-min-[375px] h-[55px] flex items-center pt-[10px] footer text-title text-center ">
+      <div className="w-full w-min-[375px] h-[55px] flex items-center pt-[10px] footer text-black text-center ">
         <Link href={''} className="ml-[58px]">
           About
         </Link>
