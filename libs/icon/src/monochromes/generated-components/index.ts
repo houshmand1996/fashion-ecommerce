@@ -44,5 +44,6 @@ export { default as VectorIcon } from './vector.icon';
 export { default as VoucherIcon } from './voucher.icon';
 export { default as YouTubeIcon } from './you-tube.icon';
 export { default as BackwardIcon } from './backward.icon';
+export { default as MediaPlayerIcon } from './media-player.icon';
 export { default as SeparatorIcon } from './separator.icon';
 export { default as ShoppingBagIcon } from './shopping-bag.icon';
