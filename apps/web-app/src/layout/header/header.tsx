@@ -12,7 +12,7 @@ export const Header = () => {
       <button className="w-[24px] h-[25px] ml-[16px] text-black outline-none ">
         <MenuIcon className=" " />
       </button>
-      <Link href={'/'} className="text-black  ml-[122px]">
+      <Link href={'/'} className="text-black  ml-[102px]">
         <LogoIcon className="w-[78.347px] h-[31.094px]" />
       </Link>
       <SearchIcon

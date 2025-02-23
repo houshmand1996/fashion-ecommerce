@@ -37,6 +37,7 @@ export { default as SearchIcon } from './search.icon';
 export { default as ShippingIcon } from './shipping.icon';
 export { default as StarIcon } from './star.icon';
 export { default as TagIcon } from './tag.icon';
+export { default as TailorsDummyIcon } from './tailors-dummy.icon';
 export { default as TiffanyCoIcon } from './tiffany-co.icon';
 export { default as TwitterIcon } from './twitter.icon';
 export { default as UpIcon } from './up.icon';
