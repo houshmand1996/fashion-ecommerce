@@ -14,6 +14,10 @@ module.exports = {
     extend: {
       fontFamily: {
         TenorSans: ['Tenor Sans', 'sans-serif'],
+        BodoniModa: ['Bodoni Moda', 'sans-serif'],
+      },
+      width: {
+        page: '375px',
       },
     },
   },

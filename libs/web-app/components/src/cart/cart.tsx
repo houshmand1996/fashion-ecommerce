@@ -12,7 +12,7 @@ export const Cart = ({ className, image }: cartProp) => {
       <Image className="w-[100px] h-[133.33px]" src={image} alt="" />
       <div className=" flex-col flex-grow inline-flex items-start gap-3 w-[201px] h-[116px] ml-[10.72px]">
         <div className="flex flex-col items-start gap-[6px]">
-          <p className="w-[78px] h-5 uppercase text-title subtitle-medium">
+          <p className="w-[78px] h-5 uppercase text-black subtitle-medium">
             lamerei
           </p>
           <p className="body-small text-label w-[201px] h-[18px]">

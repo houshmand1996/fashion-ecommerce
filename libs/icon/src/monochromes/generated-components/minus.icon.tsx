@@ -8,11 +8,10 @@ const SvgMinus: FC<SVGProps<SVGSVGElement>> = (
       width="1em"
       height="1em"
       fill="currentColor"
-      stroke="currentColor"
       viewBox="0 0 17 16"
       {...props}
     >
-      <path d="M2.716 8h12" />
+      <path stroke="currentColor" d="M2.716 8h12" />
     </svg>
   );
 };

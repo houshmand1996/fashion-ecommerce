@@ -12,11 +12,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="text-primary-default bg-slate-700   h-full w-full min-h-svh flex flex-col">
-          <Header />
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </div>
+        <Header />
+        <div className="w-full h-full flex ">{children}</div>
+        <Footer />
       </body>
     </html>
   );

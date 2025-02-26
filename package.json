@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "web-app": "npx nx dev web-app",
+    "dev": "npx nx dev web-app",
     "web-app:build": "npx nx build web-app",
     "web-app:targets": "npx nx show project web-app",
     "storybook": "nx storybook storybook",

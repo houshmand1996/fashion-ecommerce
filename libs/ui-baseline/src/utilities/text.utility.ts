@@ -59,4 +59,12 @@ export const textUtility = {
     fontSize: '0.625rem', // 10px
     lineHeight: '0.75rem', // 12px
   },
+  '.banner': {
+    fontFamily: 'Bodoni Moda',
+    fontWeight: '700', // bold
+    fontSize: '2.416rem', // 38.656px
+    lineHeight: '2.718rem;', // 43.488px
+    'letter-spacing': '1.208px',
+    'font-feature-settings': "'liga' off, 'clig' off",
+  },
 };

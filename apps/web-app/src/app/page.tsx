@@ -1,40 +1,35 @@
-import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
-import image from '../../public/Recycle Boucle Knit Cardigan Pink.png';
-import image2 from '../../public/jacket.png';
+import Image from 'next/image';
 import {
-  FullProduct,
-  GridViewProduct,
-  HomePageProduct,
-  ListViewProduct,
-} from '@code-dudes/fashion-ecommerce/web-app/components';
+  Banner,
+  NewArrival,
+  Brand,
+  Collection,
+  Product,
+  Trending,
+  OpenFashion,
+  Follow,
+} from './pages/first-page';
+import image from '.././../public/image 12.png';
+import { MediaPlayerIcon } from '@code-dudes/fashion-ecommerce/icon';
 export default function Index() {
-  const item = {
-    name: '21WN',
-    image,
-    price: 120,
-    details: 'reversible angora cardigan',
-    rating: 120,
-  };
   return (
-    <div className="container bg-secondary h-full w-full flex-1 min-h-fit">
-      <div id="welcome" className="flex flex-col min-h-min">
-        <h1>
-          <span className="text-primary-default"> Hello there, ali</span>
-          Welcome web-app 👋
-        </h1>
-        <Button state={'primary'} size={'sm'} className="gap">
-          button
-        </Button>
-        {/* <Cart className="bg-slate-200" /> */}
-        <div className="flex gap-2 justify-around flex-wrap">
-          <GridViewProduct item={item} className="bg-orange-400   h-fit" />
-          <HomePageProduct className="bg-red-400 h-fit" item={item} />
-
-          <FullProduct item={item} className="bg-slate-300" />
-
-          <ListViewProduct item={item} className="bg-blue-500 " />
-        </div>
+    <div id="homePage" className=" w-page h-[4200px] bg-off-white ">
+      <Banner />
+      <NewArrival />
+      <Brand />
+      <Collection />
+      <div className="h-[176px] w-page mt-10 relative" id="video">
+        <Image fill alt="" src={image} />
+        <MediaPlayerIcon
+          className="w-[33.27px] h-[33.27px]
+        text-opacity-50 absolute  top-[77.84px] left-[187.16px]
+        "
+        />
       </div>
+      <Product />
+      <Trending />
+      <OpenFashion />
+      <Follow />
     </div>
   );
 }

@@ -26,7 +26,7 @@ export const ListViewProduct: FC<ListViewProductProps> = ({
       <div className="flex min-w-[231px]  flex-col items-start gap-[11px] relative">
         <div className="flex-flex-col items-start gap-1">
           <div className="flex min-w-[206px] flex-col items-start">
-            <p className="text-title subtitle-medium">{name}</p>
+            <p className="text-black subtitle-medium">{name}</p>
             <p className="w-[235px] h-[18px] text-label body-medium mr-1">
               {details}
             </p>

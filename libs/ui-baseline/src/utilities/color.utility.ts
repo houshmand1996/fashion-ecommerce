@@ -10,11 +10,6 @@ export const colorUtilities = {
 
     background: 'rgba(var(--secondary),var(--tw-bg-opacity))',
   },
-  '.bg-title': {
-    '--tw-bg-opacity': '1',
-
-    background: 'rgba(var(--title),var(--tw-bg-opacity))',
-  },
   '.bg-body': {
     '--tw-bg-opacity': '1',
 
@@ -70,54 +65,54 @@ export const colorUtilities = {
   //text classes
 
   '.text-off-white': {
-    '--tw-bg-opacity': '1',
+    '--tw-text-opacity': '1',
 
-    color: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+    color: 'rgba(var(--off-white),var(--tw-text-opacity))',
   },
   '.text-body': {
-    '--tw-bg-opacity': '1',
+    '--tw-text-opacity': '1',
 
-    color: 'rgba(var(--body),var(--tw-bg-opacity))',
-  },
-  '.text-title': {
-    '--tw-bg-opacity': '1',
-
-    color: 'rgba(var(--title),var(--tw-bg-opacity))',
+    color: 'rgba(var(--body),var(--tw-text-opacity))',
   },
   '.text-label': {
-    '--tw-bg-opacity': '1',
+    '--tw-text-opacity': '1',
 
-    color: 'rgba(var(--label),var(--tw-bg-opacity))',
+    color: 'rgba(var(--label),var(--tw-text-opacity))',
   },
   '.text-primary': {
-    '--tw-bg-opacity': '1',
+    '--tw-text-opacity': '1',
 
-    color: 'rgba(var(--primary),var(--tw-bg-opacity))',
+    color: 'rgba(var(--primary),var(--tw-text-opacity))',
   },
   '.text-secondary': {
-    '--tw-bg-opacity': '1',
+    '--tw-text-opacity': '1',
 
-    color: 'rgba(var(--secondary),var(--tw-bg-opacity))',
+    color: 'rgba(var(--secondary),var(--tw-text-opacity))',
   },
   '.text-border': {
-    '--tw-bg-opacity': '1',
+    '--tw-text-opacity': '1',
 
-    color: 'rgba(var(--border),var(--tw-bg-opacity))',
+    color: 'rgba(var(--border),var(--tw-text-opacity))',
+  },
+  '.text-placeholder': {
+    '--tw-text-opacity': '1',
+
+    color: 'rgba(var(--placeholder),var(--tw-text-opacity))',
   },
   //fill classes
   '.fill-off-white': {
-    '--tw-bg-opacity': '1',
+    '--tw-fill-opacity': '1',
 
-    fill: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+    fill: 'rgba(var(--off-white),var(--tw-fill-opacity))',
   },
   '.fill-primary': {
-    '--tw-bg-opacity': '1',
+    '--tw-fill-opacity': '1',
 
-    fill: 'rgba(var(--primary),var(--tw-bg-opacity))',
+    fill: 'rgba(var(--primary),var(--tw-fill-opacity))',
   },
   '.stroke-off-white': {
-    '--tw-bg-opacity': '1',
+    '--tw-stroke-opacity': '1',
 
-    stroke: 'rgba(var(--off-white),var(--tw-bg-opacity))',
+    stroke: 'rgba(var(--off-white),var(--tw-stroke-opacity))',
   },
 };
