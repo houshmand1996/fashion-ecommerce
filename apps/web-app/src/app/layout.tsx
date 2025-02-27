@@ -1,5 +1,4 @@
 import './global.css';
-import { Header, Footer } from '../layout';
 import { FC } from 'react';
 export const metadata = {
   title: 'Welcome to web-app',
@@ -11,7 +10,9 @@ export type LayoutType = {
 const RootLayout: FC<LayoutType> = ({ children }) => {
   return (
     <html lang="en">
-      <body className="h-full w-full min-h-svh flex flex-col ">{children}</body>
+      <body className="h-full w-full min-h-svh flex flex-col font-TenorSans">
+        {children}
+      </body>
     </html>
   );
 };

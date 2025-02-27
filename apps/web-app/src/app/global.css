@@ -10,3 +10,9 @@
 .redClass :first-child {
   color: blue;
 }
+
+@layer utilities {
+  .GroupIcon {
+    @apply text-secondary fill-current stroke-[1px];
+  }
+}
