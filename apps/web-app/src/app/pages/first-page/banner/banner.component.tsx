@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { TextComponent } from './text-component';
-import image from '../../../../../public/niceShoe.png';
 import { Group12Icon } from '@code-dudes/fashion-ecommerce/icon';
 import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { FC } from 'react';
@@ -13,7 +12,9 @@ export const Banner: FC<classNameType> = ({ className }) => {
     >
       <div className="relative ">
         <Image
-          src={image}
+          src={'/niceShoe.png'}
+          width={500}
+          height={500}
           alt=""
           className="w-[556px] h-[600px] flex-shrink-0 "
         />
