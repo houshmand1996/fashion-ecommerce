@@ -69,6 +69,12 @@ export const colorUtilities = {
 
     color: 'rgba(var(--off-white),var(--tw-text-opacity))',
   },
+
+  '.text-input': {
+    '--tw-text-opacity': '1',
+
+    color: 'rgba(var(--input),var(--tw-text-opacity))',
+  },
   '.text-body': {
     '--tw-text-opacity': '1',
 
