@@ -37,7 +37,7 @@ export const Footer = () => {
         <Link href={'/contactUs'} className="ml-[52px]">
           Contact
         </Link>
-        <Link href={''} className="ml-[52px]">
+        <Link href={'/blog'} className="ml-[52px]">
           Blog
         </Link>
       </div>
