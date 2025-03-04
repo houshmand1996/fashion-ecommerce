@@ -1,6 +1,7 @@
 export { default as AddMessageIcon } from './add-message.icon';
 export { default as BackIcon } from './back.icon';
 export { default as BackwardArrowIcon } from './backward-arrow.icon';
+export { default as BookmarkIcon } from './bookmark.icon';
 export { default as BossIcon } from './boss.icon';
 export { default as BurberryIcon } from './burberry.icon';
 export { default as CallIcon } from './call.icon';
