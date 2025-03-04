@@ -1,12 +1,12 @@
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { FC, useState } from 'react';
-import { CartBackground } from './cart-background-component';
+import { CardBackground } from './card-background-component';
 import {
   MasterCardGraphic,
   Group12Icon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { CartSliderType } from '../add-cart.type';
-export const CartSlider: FC<CartSliderType> = ({ item }) => {
+import { CardSliderType } from '../add-card.type';
+export const CardSlider: FC<CardSliderType> = ({ item }) => {
   const [group, setGroup] = useState(0);
 
   return (
@@ -17,17 +17,17 @@ export const CartSlider: FC<CartSliderType> = ({ item }) => {
           group == 0 ? 'ml-[13px]' : group == 1 ? '-ml-[300px]' : '-ml-[600px]'
         )}
       >
-        <CartBackground
+        <CardBackground
           item={{ ...item, Icon: MasterCardGraphic }}
           className=" bg-gradient-to-r from-[#3B41C5] via-[#A981BB] vie-49% to-[#FFC8A9]  "
         />
 
-        <CartBackground
+        <CardBackground
           item={{ ...item, Icon: MasterCardGraphic }}
           className=" bg-gradient-to-r from-[#434343] from-0%  to-black to-100%  "
         />
 
-        <CartBackground
+        <CardBackground
           item={{ ...item, Icon: MasterCardGraphic }}
           className=" bg-gradient-to-r from-[#29323C]  to-[#485563] "
         />

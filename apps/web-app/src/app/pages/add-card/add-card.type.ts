@@ -1,25 +1,25 @@
 import { Dispatch, FC, SetStateAction, SVGProps } from 'react';
 
-export type CartType = {
+export type CardType = {
   name: string;
   expMonth: string;
   expYear: string;
-  cartNumber: string;
+  cardNumber: string;
 };
-export type CartSliderType = {
-  item: CartType;
+export type CardSliderType = {
+  item: CardType;
   className?: string;
 };
-export type CartBackgroundType = CartSliderType & {
-  item: CartSliderType['item'] & {
+export type CardBackgroundType = CardSliderType & {
+  item: CardSliderType['item'] & {
     Icon: FC<SVGProps<SVGSVGElement>>;
   };
 };
-export type InputFormType = CartSliderType & {
-  item: CartSliderType['item'] & {
+export type InputFormType = CardSliderType & {
+  item: CardSliderType['item'] & {
     setExpMonth: Dispatch<SetStateAction<string>>;
     setExpYear: Dispatch<SetStateAction<string>>;
-    setCartNumber: Dispatch<SetStateAction<string>>;
+    setCardNumber: Dispatch<SetStateAction<string>>;
     setName: Dispatch<SetStateAction<string>>;
   };
 };

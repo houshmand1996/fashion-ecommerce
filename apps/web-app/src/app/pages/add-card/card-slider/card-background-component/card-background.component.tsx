@@ -1,9 +1,9 @@
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { FC } from 'react';
-import { CartBackgroundType } from '../../add-cart.type';
+import { CardBackgroundType } from '../../add-card.type';
 
-export const CartBackground: FC<CartBackgroundType> = ({ item, className }) => {
-  const { Icon, cartNumber, expMonth, expYear, name } = item;
+export const CardBackground: FC<CardBackgroundType> = ({ item, className }) => {
+  const { Icon, cardNumber, expMonth, expYear, name } = item;
   return (
     <div
       className={cn(
@@ -22,7 +22,7 @@ export const CartBackground: FC<CartBackgroundType> = ({ item, className }) => {
           }`}</p>
         </div>
         <p className="text-[18px]/[16px] tracking-[1px] basis-full">
-          {cartNumber || '1234-5678-9123-4567'}
+          {cardNumber || '1234-5678-9123-4567'}
         </p>
       </div>
     </div>

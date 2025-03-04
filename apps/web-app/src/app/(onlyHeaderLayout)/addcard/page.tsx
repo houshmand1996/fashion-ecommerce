@@ -2,11 +2,11 @@
 import { SeparatorIcon } from '@code-dudes/fashion-ecommerce/icon';
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { useState } from 'react';
-import { CartSlider, InputForm } from '../../pages';
+import { CardSlider, InputForm } from '../../pages';
 
-const AddCart = () => {
+const AddCard = () => {
   const [name, setName] = useState('');
-  const [cartNumber, setCartNumber] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
   const [expMonth, setExpMonth] = useState('');
   const [expYear, setExpYear] = useState('');
   return (
@@ -15,15 +15,15 @@ const AddCart = () => {
         Payment method
       </p>
       <SeparatorIcon className="w-[124.96px] h-[9.25px] text-label ml-[125.85px]" />
-      <CartSlider item={{ cartNumber, expMonth, expYear, name }} />
+      <CardSlider item={{ cardNumber, expMonth, expYear, name }} />
 
       <InputForm
         item={{
-          cartNumber,
+          cardNumber,
           expMonth,
           expYear,
           name,
-          setCartNumber,
+          setCardNumber,
           setExpMonth,
           setExpYear,
           setName,
@@ -39,4 +39,4 @@ const AddCart = () => {
     </form>
   );
 };
-export default AddCart;
+export default AddCard;

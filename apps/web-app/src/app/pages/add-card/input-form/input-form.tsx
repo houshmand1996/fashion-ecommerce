@@ -1,14 +1,14 @@
 import { Input } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { FC } from 'react';
-import { InputFormType } from '../add-cart.type';
+import { InputFormType } from '../add-card.type';
 
 export const InputForm: FC<InputFormType> = ({ item }) => {
   const {
-    cartNumber,
+    cardNumber,
     expMonth,
     expYear,
     name,
-    setCartNumber,
+    setCardNumber,
     setExpMonth,
     setExpYear,
     setName,
@@ -29,10 +29,10 @@ export const InputForm: FC<InputFormType> = ({ item }) => {
           if (e.currentTarget.value.length <= 19) {
             let value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
             value = value.match(/.{1,4}/g)?.join('-') || value; // Add dash every 4 digits
-            setCartNumber(value);
+            setCardNumber(value);
           }
         }}
-        value={cartNumber}
+        value={cardNumber}
         variant={'default'}
         sizes={'lg'}
       />
