@@ -1,4 +1,4 @@
-import { Tag } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Tag } from '@code-dudes/fashion-ecommerce/ui-kit';
 
 export const Trending = () => {
   const trendingText = [
@@ -14,7 +14,7 @@ export const Trending = () => {
     <div className="w-page h-[140px] mt-[38px] ">
       <p
         className="text-black text-center title
-    uppercase tracking-[4px] ml-[11px]
+    uppercase tracking-[4px] pl-[11px]
     "
       >
         @Trending

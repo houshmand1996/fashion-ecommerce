@@ -10,7 +10,7 @@ export type LayoutType = {
 const RootLayout: FC<LayoutType> = ({ children }) => {
   return (
     <html lang="en">
-      <body className="h-full w-full min-h-svh flex flex-col font-TenorSans">
+      <body className="h-full w-full min-h-svh flex flex-col font-TenorSans overflow-x-clip">
         {children}
       </body>
     </html>

@@ -10,14 +10,14 @@ export const Product = () => {
   return (
     <div className="w-page h-[531px] relative">
       <p
-        className="text-black text-center title uppercase tracking-[4px] w-[374px] h-[49.3px]
-      p-[0px 95.5px 0.746px 96.5px] mt-[72px]
+        className="text-center title uppercase   h-[49.3px]
+      pl-[95.5px] pb-[0.746px] pr-[93.5px] mt-[72px]
       "
       >
         Just for You
       </p>
       <SeparatorIcon className="w-[124.96px] h-[9.25px] text-label ml-[125px]" />
-      <div className="w-[1050px] h-[390px] ml-[16.4px] mr-[-691px] mt-[23px] flex">
+      <div className=" h-[390px] ml-[16.4px]  mt-[23px] flex gap-[10.57px] overflow-hidden ">
         <HomePageProduct
           className="gap-1 pt-[0.271px] pb-[2.09px] h-[390px] w-[255px] first-child:w-[253px] first-child:h-[311.639px] last-child:w-[235px]
           [&>div>p:first-child]:body-large

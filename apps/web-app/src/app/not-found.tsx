@@ -2,7 +2,7 @@ import {
   BackwardArrowIcon,
   TailorsDummyIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Footer, Header } from '../layout';
 
 const NotFound = () => {

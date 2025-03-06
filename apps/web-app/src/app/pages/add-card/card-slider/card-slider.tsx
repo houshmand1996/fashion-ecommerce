@@ -1,4 +1,4 @@
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC, useState } from 'react';
 import { CardBackground } from './card-background-component';
 import {

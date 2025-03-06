@@ -8,3 +8,15 @@
     @apply text-secondary fill-current stroke-[1px];
   }
 }
+.menu {
+  scrollbar-color: #dd8560 #ffffff !important;
+  scrollbar-width: thin;
+}
+:modal::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  background-color: blueviolet;
+}
+:modal::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+}

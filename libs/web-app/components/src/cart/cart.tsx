@@ -3,7 +3,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import Image from 'next/image';
 import { CartProps } from '../product/product.type';
 export const Cart = ({ className, item }: CartProps) => {

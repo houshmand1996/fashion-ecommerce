@@ -1,4 +1,4 @@
-import { Input } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Input } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC } from 'react';
 import { InputFormType } from '../add-card.type';
 
