@@ -46,9 +46,9 @@ const page = () => {
       <Button
         size={'lg'}
         state={'primary'}
-        className="w-full mt-[28.44px]  flex gap-6 px-[136px]  tracking-[0.14px]"
+        className="w-full mt-[28.44px]  px-[136px]  tracking-[0.14px]"
       >
-        submit
+        <p>submit</p>
         <ForwardArrowIcon className="w-5 h-5 text-input fill-none" />
       </Button>
     </div>

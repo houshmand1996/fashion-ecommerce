@@ -9,8 +9,8 @@ export const buttonVariants = cva(
       },
       size: {
         sm: 'py-2 px-[30px] gap-2 backdrop-blur-[2px] body-large',
-        md: 'py-3 px-[33px] gap-[10px] body-large',
-        lg: 'py-5 px-[120px] gap-3 body-medium',
+        md: 'py-3 px-[33px] gap-[10px] body-large text-center',
+        lg: 'h-14 gap-6 body-medium text-center tracking-[0.14px]',
       },
     },
     defaultVariants: {
