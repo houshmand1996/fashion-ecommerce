@@ -23,8 +23,6 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
-  theme: {
-    colors: {},
-  },
+  theme: {},
   plugins: [uiBaselinePlugin],
 };
