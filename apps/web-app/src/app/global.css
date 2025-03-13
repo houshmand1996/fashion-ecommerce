@@ -3,10 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.blueClass :nth-child() {
-  color: blueviolet;
-}
-
-.redClass :first-child {
-  color: blue;
-}

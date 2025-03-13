@@ -1,2 +1,2 @@
-export * from './dropdown-menu';
-export * from './dropdown-menu.type';
+export * from './dialog.component';
+export * from './dialog.type';
