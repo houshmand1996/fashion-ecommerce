@@ -1,5 +1,5 @@
 import type { StoryFn, Meta, StoryObj } from '@storybook/react';
-import { Dialog } from './index';
+import { Dialog, DialogClose, DialogContent, DialogTrigger } from './index';
 import React, { ComponentProps } from 'react';
 
 type storyProps = ComponentProps<typeof Dialog>;
@@ -18,6 +18,14 @@ export const Encounter: story = {
     className: '',
   },
   render: ({ className, ...args }) => {
-    return <Dialog {...args} className={className} />;
+    return (
+      <Dialog {...args} className={className}>
+        <DialogTrigger className="">open Dialog</DialogTrigger>
+        <DialogContent className="w-52 h-52 ">
+          <DialogClose>close dialog</DialogClose>
+          it in dialog
+        </DialogContent>
+      </Dialog>
+    );
   },
 };
