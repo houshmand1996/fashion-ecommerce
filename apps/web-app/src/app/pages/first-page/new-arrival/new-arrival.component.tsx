@@ -3,7 +3,7 @@ import {
   SeparatorIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
 import { FC } from 'react';
-import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Tab } from './tab';
 
 import { classNameType } from '../../pages.type';

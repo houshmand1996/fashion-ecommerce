@@ -1,6 +1,6 @@
 import { Ellipse68Icon, StarIcon } from '@code-dudes/fashion-ecommerce/icon';
 import Image from 'next/image';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC } from 'react';
 import { ListViewProductProps } from '../product.type';
 

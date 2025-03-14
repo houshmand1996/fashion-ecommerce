@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { TextComponent } from './text-component';
-import image from '../../../../../public/niceShoe.png';
 import { Group12Icon } from '@code-dudes/fashion-ecommerce/icon';
-import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC } from 'react';
 import { classNameType } from '../../pages.type';
 export const Banner: FC<classNameType> = ({ className }) => {
@@ -11,11 +10,13 @@ export const Banner: FC<classNameType> = ({ className }) => {
       id="banner"
       className={cn('w-page h-[600px] flex-shrink-0 mb-6', className)}
     >
-      <div className="relative ">
+      <div className="relative overflow-x-hidden">
         <Image
-          src={image}
+          src={'/niceShoe.png'}
+          width={500}
+          height={500}
           alt=""
-          className="w-[556px] h-[600px] flex-shrink-0 "
+          className="w-page h-[600px] flex-shrink-0 "
         />
         <TextComponent className="w-[175.16px] h-[43.4px]  absolute  left-[42.84px] top-[231.44px]">
           Luxury

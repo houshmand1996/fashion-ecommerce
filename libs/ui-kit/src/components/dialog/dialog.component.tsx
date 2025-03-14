@@ -10,7 +10,9 @@ export const DialogClose: React.FC<ButtonProps> = (props) => {
 
   return (
     <Button
-      onClick={() => dialogRef.current?.close()}
+      onClickCapture={() => {
+        dialogRef.current?.close();
+      }}
       {...props}
       state={'default'}
       size={'default'}
@@ -22,7 +24,12 @@ export const DialogClose: React.FC<ButtonProps> = (props) => {
 export const DialogTrigger: React.FC<ButtonProps> = (props) => {
   const dialogRef = stableDialogRef();
   return (
-    <Button onClick={() => dialogRef.current?.showModal()} {...props}>
+    <Button
+      onClickCapture={() => {
+        dialogRef.current?.showModal();
+      }}
+      {...props}
+    >
       {props.children}
     </Button>
   );
@@ -40,16 +47,16 @@ export const DialogContent = React.forwardRef<HTMLDialogElement, DialogProps>(
   }
 );
 
-export const Dialog: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
-  children,
-
-  className,
-}) => {
+export const Dialog: React.FC<React.HTMLAttributes<HTMLDivElement>> = (
+  props
+) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
 
   return (
     <RefProvider.Provider value={dialogRef}>
-      <div className={className}>{children}</div>
+      <div id="dialog" {...props}>
+        {props.children}
+      </div>
     </RefProvider.Provider>
   );
 };
