@@ -1,0 +1,144 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Handbag",
+      "category": "Bag",
+      "price": 150,
+      "stock": 10,
+      "description": "A stylish handbag perfect for any occasion.",
+      "image": "assets/handbag1.png",
+      "details": "Made from high-quality leather, this handbag features multiple compartments and a sleek design."
+    },
+    {
+      "id": 2,
+      "name": "Sneakers",
+      "category": "Shoes",
+      "price": 120,
+      "stock": 15,
+      "description": "Comfortable and trendy sneakers for everyday wear.",
+      "image": "assets/handbag1.png",
+      "details": "These sneakers are made with breathable material and have a cushioned sole for maximum comfort."
+    },
+    {
+      "id": 3,
+      "name": "Sunglasses",
+      "category": "Accessories",
+      "price": 80,
+      "stock": 25,
+      "description": "Stylish sunglasses to protect your eyes and enhance your look.",
+      "image": "assets/Rectangle 344.png",
+      "details": "UV protection lenses with a durable frame, perfect for sunny days."
+    },
+    {
+      "id": 4,
+      "name": "Dress",
+      "category": "Apparel",
+      "price": 200,
+      "stock": 5,
+      "description": "Elegant dress suitable for formal occasions.",
+      "image": "assets/Rectangle 344(3).png",
+      "details": "This dress is made from high-quality fabric and features a flattering silhouette."
+    },
+    {
+      "id": 5,
+      "name": "Watch",
+      "category": "Accessories",
+      "price": 250,
+      "stock": 8,
+      "description": "A luxury watch to complement your style.",
+      "image": "assets/Rectangle 344(4).png",
+      "details": "This watch features a stainless steel band and a scratch-resistant face."
+    },
+    {
+      "id": 6,
+      "name": "Jacket",
+      "category": "Apparel",
+      "price": 300,
+      "stock": 12,
+      "description": "A warm and stylish jacket for the winter season.",
+      "image": "assets/jacket.png",
+      "details": "Made from high-quality materials, this jacket is both warm and stylish."
+    },
+    {
+      "id": 7,
+      "name": "Boots",
+      "category": "Shoes",
+      "price": 180,
+      "stock": 7,
+      "description": "Durable and fashionable boots for all terrains.",
+      "image": "assets/boots.png",
+      "details": "These boots are made from durable materials and feature a non-slip sole."
+    },
+    {
+      "id": 8,
+      "name": "Hat",
+      "category": "Accessories",
+      "price": 50,
+      "stock": 20,
+      "description": "A stylish hat to complete your outfit.",
+      "image": "assets/hat.png",
+      "details": "This hat is made from high-quality materials and features a comfortable fit."
+    },
+    {
+      "id": 9,
+      "name": "Scarf",
+      "category": "Accessories",
+      "price": 40,
+      "stock": 30,
+      "description": "A cozy scarf to keep you warm during the cold months.",
+      "image": "assets/scarf.png",
+      "details": "Made from soft and warm materials, this scarf is perfect for cold weather."
+    },
+    {
+      "id": 10,
+      "name": "T-shirt",
+      "category": "Apparel",
+      "price": 25,
+      "stock": 50,
+      "description": "A comfortable and casual t-shirt for everyday wear.",
+      "image": "assets/tshirt.png",
+      "details": "This t-shirt is made from soft and breathable fabric, perfect for everyday wear."
+    },
+    {
+      "id": 11,
+      "name": "lamerei",
+      "category": "knit-wear",
+      "price": 125,
+      "stock": 50,
+      "description": "Recycle Boucle Knit Cardigan Pink",
+      "image": "assets/lamerei.png",
+      "details": "Lamerei aims for a modern look of restrained feminine beauty based on classical music. In order to make valuable clothes out of numerous clothes, we propose a restrained feminine look and casual look based on good materials and elaborate sewing. I hope you will be confident and shining anywhere in your Lamerei clothes."
+    },
+    {
+      "id": 12,
+      "name": "5252 by o!oi",
+      "category": "knit-wear",
+      "price": 120,
+      "stock": 50,
+      "description": "2021 Signature Sweatshirt [NAVY]",
+      "image": "assets/5252 by o!oi.png",
+      "details": "Lamerei aims for a modern look of restrained feminine beauty based on classical music. In order to make valuable clothes out of numerous clothes, we propose a restrained feminine look and casual look based on good materials and elaborate sewing. I hope you will be confident and shining anywhere in your Lamerei clothes."
+    },
+    {
+      "id": "889563b7-d999-422e-8752-5666db67d41a",
+      "name": "newpost",
+      "category": "knit-wear",
+      "price": 120,
+      "stock": 50,
+      "description": "2021 Signature Sweatshirt [NAVY]",
+      "image": "assets/5252 by o!oi.png",
+      "details": "Lamerei aims for a modern look of restrained feminine beauty based on classical music. In order to make valuable clothes out of numerous clothes, we propose a restrained feminine look and casual look based on good materials and elaborate sewing. I hope you will be confident and shining anywhere in your Lamerei clothes."
+    },
+    {
+      "id": "13f283d7-ca58-4cf4-b668-a41ab165e0e2",
+      "name": "newProduct",
+      "category": "newProductCategory",
+      "price": 120,
+      "stock": 50,
+      "description": "2021 Signature Sweatshirt [NAVY]",
+      "image": "assets/tiegiel.png",
+      "details": "Lamerei aims for a modern look of restrained feminine beauty based on classical music. In order to make valuable clothes out of numerous clothes, we propose a restrained feminine look and casual look based on good materials and elaborate sewing. I hope you will be confident and shining anywhere in your Lamerei clothes."
+    }
+  ]
+}

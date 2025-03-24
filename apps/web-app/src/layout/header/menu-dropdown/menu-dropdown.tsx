@@ -8,7 +8,7 @@ import {
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Dropdown } from '@code-dudes/fashion-ecommerce/web-app/components';
 import { useEffect, useState } from 'react';
-import { menuServer } from './menu';
+import { menuServer } from 'apps/web-app/lib/db';
 
 const MenuDropdown = () => {
   const res = async () => {
@@ -22,7 +22,9 @@ const MenuDropdown = () => {
   }, []);
 
   return (
-    <Dropdown triggerChildren={<MenuIcon />}>
+    <Dropdown
+      triggerChildren={<MenuIcon className="w-6 h-6 ml-4 text-[#14142b]" />}
+    >
       <div
         className="w-page inline-flex gap-[53px]  text-body uppercase text-[14px]/[34.5px] tracking-[3px] ml-[19px]
         mt-5 *:cursor-pointer

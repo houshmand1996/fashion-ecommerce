@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "New": ["a", "b"],
+    "Apparel": [
+      "outer",
+      "dress",
+      "blouse/shirt",
+      "t-shirt",
+      "knitwear",
+      "skirt",
+      "pants",
+      "denim",
+      "kids"
+    ],
+    "Bag": ["a", "b", "c"],
+    "Shoes": ["a", "b"],
+    "Beauty": ["a", "b"],
+    "Accessories": ["a", "b"]
+  }
+}

@@ -6,6 +6,8 @@ import {
 } from '@code-dudes/fashion-ecommerce/icon';
 import Link from 'next/link';
 import MenuDropdown from './menu-dropdown/menu-dropdown';
+import CartDropdown from './cart-dropdown/cart-dropdown';
+import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
 
 export const Header = () => {
   return (
@@ -14,11 +16,15 @@ export const Header = () => {
       <Link href={'/'} className="text-black  ml-[102px]">
         <LogoIcon className="w-[78.347px] h-[31.094px]" />
       </Link>
-      <SearchIcon
-        className="text-black w-[24px] h-[24px]
+      <div>
+        <Button state={'default'} size={'default'} className="h-full">
+          <SearchIcon
+            className="text-black w-[24px] h-[24px]
           ml-[67.92px] fill-none"
-      />
-      <ShoppingBagIcon className="w-6 h-6 text-black fill-none ml-4" />
+          />
+        </Button>
+      </div>
+      <CartDropdown />
     </header>
   );
 };

@@ -18,11 +18,11 @@ export const Cart = ({ className, item }: CartProps) => {
         alt=""
       />
       <div className=" flex-col flex-grow inline-flex items-start gap-3 w-[201px] h-[116px] ml-[10.72px]">
-        <div className="flex flex-col items-start gap-[6px]">
-          <p className="w-[78px] h-5 uppercase text-black subtitle-medium">
+        <div className="flex flex-col w-fit items-start gap-[6px]">
+          <p className="w-full h-5 uppercase text-black subtitle-medium">
             {name}
           </p>
-          <p className="body-small text-label w-[201px] h-[18px]">{details}</p>
+          <p className="body-small text-label w-[201px] h-fit">{details}</p>
         </div>
         <div className="w-[78px] h-6 flex ">
           <button className="relative">
