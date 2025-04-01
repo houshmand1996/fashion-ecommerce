@@ -15,7 +15,6 @@ export const ReadFile = (dirname: string, path: string) => {
       }
       return undefined;
     });
-    console.log(db, content);
 
     return db ? JSON.parse(db) : null;
   } catch (error) {
@@ -25,7 +24,6 @@ export const ReadFile = (dirname: string, path: string) => {
 };
 export const WriteFile = (dirname: string, path: string, products: any) => {
   const pathWithoutSlash = path.replace(/^\/|\/$/g, '');
-  console.log(`${dirname}/${pathWithoutSlash}.json`);
 
   fs.writeFileSync(
     `${dirname}/${pathWithoutSlash}.json`,

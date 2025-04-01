@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strict": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -13,6 +14,8 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "typeRoots": ["./types", "node_modules/@types", "vite/client/@types"],
+    "types": ["global", "product"],
     "baseUrl": ".",
     "paths": {
       "@code-dudes/fashion-ecommerce/icon": ["libs/icon/src/index.ts"],

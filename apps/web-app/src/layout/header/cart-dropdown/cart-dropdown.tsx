@@ -1,3 +1,4 @@
+'use client';
 import { ShoppingBagIcon } from '@code-dudes/fashion-ecommerce/icon';
 import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import {
@@ -5,30 +6,39 @@ import {
   Dropdown,
   ListViewProduct,
 } from '@code-dudes/fashion-ecommerce/web-app/components';
-import { getCart, getProduct, Product } from 'apps/web-app/lib/db';
+import { getCart, getProduct, patchCartShopping } from 'apps/web-app/lib/db';
+import { useEffect, useState } from 'react';
 
-type ShoppingCart = Product & {
+export type ShoppingCart = modules.IProduct & {
   quantity: number | string;
 };
-const CartDropdown = async () => {
-  let newProduct: (ShoppingCart | null)[] | null = null;
-  const data = await getCart(1);
-  let totalPrice: number | null = null;
-  if (data) {
-    const product = data.products.map(async (ar) => {
-      const product = await getProduct(ar.productId);
-      return product ? { ...product, quantity: ar.quantity } : null;
-    });
-
-    newProduct = await Promise.all(product);
-    totalPrice = newProduct
-      .filter((ar): ar is ShoppingCart => ar !== null)
-      .reduce(
-        (total, cur) => total + Number(cur.price) * Number(cur.quantity),
-        0
-      );
-  }
-
+const CartDropdown = () => {
+  const cartId = 2;
+  const [change, setChange] = useState(false);
+  const [newProduct, setNewProduct] = useState<(ShoppingCart | null)[] | null>(
+    null
+  );
+  const getData = async () => {
+    const data = await getCart(cartId);
+    if (data) {
+      const product = data.products.map(async (ar) => {
+        const product = await getProduct(ar.productId);
+        return product ? { ...product, quantity: ar.quantity } : null;
+      });
+      setNewProduct(await Promise.all(product));
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, [change]);
+  const totalPrice = newProduct
+    ? newProduct
+        .filter((ar): ar is ShoppingCart => ar !== null)
+        .reduce(
+          (total, cur) => total + Number(cur.price) * Number(cur.quantity),
+          0
+        )
+    : null;
   return (
     <Dropdown
       triggerChildren={
@@ -55,13 +65,31 @@ const CartDropdown = async () => {
                     ar &&
                     Number(ar.quantity) > 0 && (
                       <Cart
-                        key={index}
                         item={{
                           details: ar.description,
-                          image: `${process.env.server}/${ar.image}`,
+                          image: `http://localhost:8001/${ar.image}`,
                           name: ar.name,
                           price: ar.price,
                           quantity: ar.quantity,
+                        }}
+                        key={index}
+                        onclickMinus={() =>
+                          patchCartShopping({
+                            id: cartId,
+                            item: {
+                              productId: ar.id,
+                              quantity: Number(ar.quantity) - 1,
+                            },
+                          }).then(() => setChange(!change))
+                        }
+                        onclickPlus={() => {
+                          patchCartShopping({
+                            id: cartId,
+                            item: {
+                              productId: ar.id,
+                              quantity: Number(ar.quantity) + 1,
+                            },
+                          }).then(() => setChange(!change));
                         }}
                       />
                     )

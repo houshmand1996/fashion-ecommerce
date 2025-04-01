@@ -16,5 +16,9 @@ export type ListViewProductProps = FullProductProps & {
   item: FullProductProps['item'] & { rating: string | number };
 };
 export type CartProps = FullProductProps & {
-  item: FullProductProps['item'] & { quantity: number | string };
+  item: FullProductProps['item'] & {
+    quantity: number | string;
+  };
+  onclickPlus?: any;
+  onclickMinus?: any;
 };

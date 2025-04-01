@@ -25,14 +25,14 @@
       "products": [
         {
           "productId": 5,
-          "quantity": 1
+          "quantity": 4
         },
         {
           "productId": 7,
-          "quantity": 1
+          "quantity": 5
         }
       ],
-      "totalPrice": 430
+      "totalPrice": 245
     }
   ]
 }

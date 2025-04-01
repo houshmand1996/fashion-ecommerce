@@ -12,13 +12,13 @@
     },
     {
       "id": 2,
-      "name": "Sneakers",
-      "category": "Shoes",
+      "name": "Handbag",
+      "category": "Bag",
       "price": 120,
       "stock": 15,
-      "description": "Comfortable and trendy sneakers for everyday wear.",
-      "image": "assets/handbag1.png",
-      "details": "These sneakers are made with breathable material and have a cushioned sole for maximum comfort."
+      "description": "A trendy handbag that complements your outfit.",
+      "image": "assets/handbag.png",
+      "details": "This handbag is made from durable materials and features a spacious interior."
     },
     {
       "id": 3,
@@ -42,12 +42,12 @@
     },
     {
       "id": 5,
-      "name": "Watch",
+      "name": "Patek Philippe",
       "category": "Accessories",
       "price": 250,
       "stock": 8,
-      "description": "A luxury watch to complement your style.",
-      "image": "assets/Rectangle 344(4).png",
+      "description": " Complications Stainless Steel 5935A-001 Watches Of Switzerland US",
+      "image": "assets/Patek Philippe.png",
       "details": "This watch features a stainless steel band and a scratch-resistant face."
     },
     {
@@ -67,7 +67,7 @@
       "price": 180,
       "stock": 7,
       "description": "Durable and fashionable boots for all terrains.",
-      "image": "assets/boots.png",
+      "image": "assets/shoe.png",
       "details": "These boots are made from durable materials and feature a non-slip sole."
     },
     {
@@ -121,20 +121,10 @@
       "details": "Lamerei aims for a modern look of restrained feminine beauty based on classical music. In order to make valuable clothes out of numerous clothes, we propose a restrained feminine look and casual look based on good materials and elaborate sewing. I hope you will be confident and shining anywhere in your Lamerei clothes."
     },
     {
-      "id": "889563b7-d999-422e-8752-5666db67d41a",
-      "name": "newpost",
-      "category": "knit-wear",
-      "price": 120,
-      "stock": 50,
-      "description": "2021 Signature Sweatshirt [NAVY]",
-      "image": "assets/5252 by o!oi.png",
-      "details": "Lamerei aims for a modern look of restrained feminine beauty based on classical music. In order to make valuable clothes out of numerous clothes, we propose a restrained feminine look and casual look based on good materials and elaborate sewing. I hope you will be confident and shining anywhere in your Lamerei clothes."
-    },
-    {
-      "id": "13f283d7-ca58-4cf4-b668-a41ab165e0e2",
-      "name": "newProduct",
+      "id": "337a211a-c1ec-47ad-a280-6e29b954649b",
+      "name": "newHandbag",
       "category": "newProductCategory",
-      "price": 120,
+      "price": 99,
       "stock": 50,
       "description": "2021 Signature Sweatshirt [NAVY]",
       "image": "assets/tiegiel.png",

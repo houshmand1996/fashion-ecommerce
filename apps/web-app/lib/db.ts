@@ -1,19 +1,4 @@
 'use server';
-export type Product = {
-  productId: number | string;
-  name: string;
-  category: string;
-  price: number | string;
-  stock: number | string;
-  description: string;
-  image: string;
-  details: string;
-};
-export type Cart = {
-  cartId: number | string;
-  userId: number | string;
-  products: { productId: number | string; quantity: number | string }[];
-};
 export const getProduct = async (id: number | string) => {
   const product = await fetch(`${process.env.server}/products/${id}`).catch(
     (err) => {
@@ -33,7 +18,7 @@ export const getProduct = async (id: number | string) => {
       if (Object.keys(productJson).length === 0) {
         return null;
       }
-      return productJson[0] as Product;
+      return productJson[0] as modules.IProduct;
     }
   }
   return null;
@@ -57,12 +42,16 @@ export const getCart = async (id: number | string) => {
         return null;
       }
 
-      return cartJson[0] as Cart;
+      return cartJson[0] as modules.IShoppingCart;
     }
   }
   return null;
 };
-export const postProduct = async ({ item }: { item: Product }) => {
+export const postProduct = async ({
+  item,
+}: {
+  item: Omit<modules.IProduct, 'id'>;
+}) => {
   const product = await fetch(`${process.env.server}/products`, {
     method: 'POST',
     body: JSON.stringify(item),
@@ -77,10 +66,71 @@ export const postProduct = async ({ item }: { item: Product }) => {
       console.log(err);
       return null;
     });
-    console.log(productJson, 'product');
 
     if (productJson && productJson[0]) {
-      return productJson[0] as Product;
+      return productJson[0] as modules.IProduct;
+    }
+  }
+  return null;
+};
+export const patchProduct = async ({
+  item,
+  id,
+}: {
+  item: Partial<modules.IProduct>;
+  id: string | number;
+}) => {
+  const product = await fetch(`${process.env.server}/products/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(item),
+  }).catch((err) => {
+    console.log(err);
+
+    return null;
+  });
+
+  if (product) {
+    const productJson = await product.json().catch((err) => {
+      console.log(err);
+      return null;
+    });
+
+    if (productJson && productJson[0]) {
+      return productJson[0] as modules.IProduct;
+    }
+  }
+  return null;
+};
+export const patchCartShopping = async ({
+  item,
+  id,
+}: {
+  item: { productId: number | string; quantity: number | string };
+  id: string | number;
+}) => {
+  console.log(item, 'item');
+
+  const shoppingCart = await fetch(`${process.env.server}/shoppingCart/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ products: [item] }),
+    headers: {
+      'Content-type': 'application/json ; charset=UTF-8',
+    },
+  }).catch((err) => {
+    console.log(err);
+
+    return null;
+  });
+
+  if (shoppingCart) {
+    const shoppingCartJson = await shoppingCart.json().catch((err) => {
+      console.log(err);
+      return null;
+    });
+    console.log(shoppingCartJson);
+
+    if (shoppingCartJson && shoppingCartJson[0]) {
+      return shoppingCartJson[0] as modules.IShoppingCart;
     }
   }
   return null;
