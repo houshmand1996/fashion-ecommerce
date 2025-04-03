@@ -14,6 +14,7 @@ import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Dropdown } from '@code-dudes/fashion-ecommerce/web-app/components';
 import { useEffect, useState } from 'react';
 import { menuServer } from 'apps/web-app/lib/db';
+import Link from 'next/link';
 
 const MenuDropdown = () => {
   const res = async () => {
@@ -80,7 +81,9 @@ const MenuDropdown = () => {
 
               <div className="hidden ml-9 peer-checked:inline-block">
                 {menu[ar].map((arr) => (
-                  <div key={arr}>{arr}</div>
+                  <div key={arr}>
+                    <Link href={'/search/' + arr}>{arr}</Link>
+                  </div>
                 ))}
               </div>
             </div>
