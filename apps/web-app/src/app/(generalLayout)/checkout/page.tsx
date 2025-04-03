@@ -3,7 +3,7 @@ import {
   MasterCardGraphic,
   SeparatorIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { card } from '@code-dudes/fashion-ecommerce/web-app/components';
+import { Cart } from '@code-dudes/fashion-ecommerce/web-app/components';
 const page = () => {
   return (
     <div className="w-page h-[397px] font-TenorSans">
@@ -32,7 +32,7 @@ const page = () => {
       </div>
       <p className="w-[343px] h-[1px]  bg-black ml-4 opacity-10 mt-[22.29px]" />
       <div className="mt-[13.94px] ml-4">
-        <card
+        <Cart
           item={{
             name: 'lamerei',
             details: 'Recycle Boucle Knit Cardigan Pink',

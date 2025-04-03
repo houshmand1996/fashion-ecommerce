@@ -10,8 +10,18 @@ import {
   DialogTrigger,
 } from '@code-dudes/fashion-ecommerce/ui-kit';
 import React, { ReactNode, useEffect, useState } from 'react';
-type Dropdown = { children?: ReactNode; triggerChildren?: ReactNode };
-export const Dropdown: React.FC<Dropdown> = ({ children, triggerChildren }) => {
+type Dropdown = {
+  children?: ReactNode;
+  triggerChildren?: ReactNode;
+  className?: string;
+  dialogClassName?: string;
+};
+export const Dropdown: React.FC<Dropdown> = ({
+  children,
+  triggerChildren,
+  className,
+  dialogClassName,
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -30,13 +40,15 @@ export const Dropdown: React.FC<Dropdown> = ({ children, triggerChildren }) => {
         state={'default'}
         size={'default'}
         onClick={() => setIsMenuOpen(true)}
-        className="w-[24px] h-[25px] ml-[16px] text-[#14142b] outline-none "
+        className=" outline-none "
       >
-        {triggerChildren}{' '}
+        {triggerChildren}
       </DialogTrigger>
       <DialogContent
+        id="dialogContent"
         className={cn(
-          ' bg-white  min-w-full min-h-[100vh] max-h-full overflow-x-hidden   menu'
+          ' bg-white  min-w-full min-h-full   overflow-x-hidden   menu',
+          dialogClassName
         )}
       >
         <DialogClose
@@ -45,7 +57,7 @@ export const Dropdown: React.FC<Dropdown> = ({ children, triggerChildren }) => {
         >
           <CloseIcon className="w-6 h-6 text-[#333333]" />
         </DialogClose>
-        {children}
+        <div className={className}>{children}</div>
       </DialogContent>
     </Dialog>
   );

@@ -1,0 +1,38 @@
+{
+  "shoppingCart": [
+    {
+      "id": 1,
+      "userId": 123,
+      "products": [
+        {
+          "productId": 11,
+          "quantity": 1
+        },
+        {
+          "productId": 1,
+          "quantity": 1
+        },
+        {
+          "productId": 12,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 245
+    },
+    {
+      "id": 2,
+      "userId": 456,
+      "products": [
+        {
+          "productId": 5,
+          "quantity": 4
+        },
+        {
+          "productId": 7,
+          "quantity": 5
+        }
+      ],
+      "totalPrice": 245
+    }
+  ]
+}
