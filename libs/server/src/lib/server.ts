@@ -28,6 +28,6 @@ export const server = () => {
   app.use('/products', router);
   app.use('/shoppingCart', router);
 
-  tryPort(port);
+  tryPort(Number(port) + 1);
 };
 server();

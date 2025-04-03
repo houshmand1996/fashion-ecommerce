@@ -30,12 +30,12 @@ export const Cart = ({
           </p>
           <p className="body-small text-label w-[201px] h-fit">{details}</p>
         </div>
-        <div className="w-[78px] h-6 flex ">
+        <div className="w-[78px] h-6 flex justify-between items-center">
           <button className="relative" onClick={onclickMinus}>
             <Ellipse68Icon className=" text-[#C4C4C4] w-6 h-6 opacity-20  stroke-1  fill-none" />
             <MinusIcon className="w-4 h-4 text-black absolute bottom-1 left-1" />
           </button>
-          <p className="text-black font-TenorSans text-[14px]/[14px] ml-[17px] mr-[15.94px] mt-[4.77px] ">
+          <p className="text-black font-TenorSans text-[14px]/[14px]  ">
             {quantity}
           </p>
           <button className="relative" onClick={onclickPlus}>
