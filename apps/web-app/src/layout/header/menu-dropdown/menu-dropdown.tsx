@@ -4,6 +4,11 @@ import {
   SeparatorIcon,
   MenuIcon,
   DownIcon,
+  CallIcon,
+  LocationIcon,
+  TwitterIcon,
+  InstagramIcon,
+  YouTubeIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Dropdown } from '@code-dudes/fashion-ecommerce/web-app/components';
@@ -80,6 +85,40 @@ const MenuDropdown = () => {
               </div>
             </div>
           ))}
+      </div>
+      <div
+        id="contact"
+        className="ml-[18.32px] mt-[32.15px] flex flex-col items-start gap-[15.61px]"
+      >
+        <div
+          id="customer service"
+          className="inline-flex justify-center items-center gap-4"
+        >
+          <CallIcon className="h-6 w-6 fill-none" />
+          <p className="text-label text-4/[34.5px] tracking-[1.28px] ">
+            (786) 713-8616
+          </p>
+        </div>
+        <div
+          id="store locator"
+          className="inline-flex justify-center items-center gap-4 normal-case"
+        >
+          <LocationIcon className="h-6 w-6 fill-none" />
+          <p className="text-label text-4/[34.5px]">Store locator</p>
+        </div>
+      </div>
+      <div className="w-full flex justify-center mt-[33px]">
+        <SeparatorIcon
+          className="w-[124.954px] h-[9.254px]
+      text-label"
+        />
+      </div>
+      <div id="social" className="mt-6 w-full flex justify-center  ">
+        <div className="w-[142px] h-6 flex gap-[35px] *:h-full *:w-6">
+          <TwitterIcon />
+          <InstagramIcon />
+          <YouTubeIcon />
+        </div>
       </div>
     </Dropdown>
   );
