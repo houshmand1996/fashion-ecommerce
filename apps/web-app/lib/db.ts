@@ -1,36 +1,62 @@
 'use server';
-export const getProduct = async (id: number | string) => {
-  const product = await fetch(`${process.env.server}/products/${id}`).catch(
-    (err) => {
-      console.log(err);
+const fetchProduct = async (server: string) => {
+  console.log(server, 'server is');
 
+  try {
+    const product = await fetch(server);
+    const productJson = await product.json();
+    console.log(productJson, 'productJson', Array.isArray(productJson));
+
+    if (Object.keys(productJson).length === 0) {
       return null;
     }
-  );
 
-  if (product) {
-    const productJson = await product.json().catch((err) => {
-      console.log(err);
-      return null;
-    });
-
-    if (productJson) {
-      if (Object.keys(productJson).length === 0) {
-        return null;
-      }
-      return productJson[0] as modules.IProduct;
-    }
+    return Array.isArray(productJson) ? productJson : [productJson];
+  } catch (err) {
+    console.log(err);
+    return null;
   }
-  return null;
+};
+export const getProduct = async ({
+  id,
+  category,
+  gender,
+  subCategory,
+}: {
+  id?: number | string;
+  category?: string;
+  gender?: string;
+  subCategory?: string;
+}) => {
+  const baseUrl = `${process.env.NEXT_PUBLIC_SERVER}/products`;
+  const queryParams = new URLSearchParams();
+  console.log();
+
+  if (id) {
+    // If `id` is provided, fetch the specific product
+    const server = `${baseUrl}/${id}`;
+    console.log('server is', server);
+    return fetchProduct(server);
+  }
+
+  // Add query parameters based on the provided filters
+  if (category) queryParams.append('category', category);
+  if (gender) queryParams.append('gender', gender);
+  if (subCategory) queryParams.append('subCategory', subCategory);
+
+  const server = queryParams.toString() ? `${baseUrl}?${queryParams}` : baseUrl;
+  console.log('server is', server);
+
+  return fetchProduct(server);
 };
 export const getCart = async (id: number | string) => {
-  const cart = await fetch(`${process.env.server}/shoppingCart/${id}`).catch(
-    (err) => {
-      console.log(err);
+  const cart = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/shoppingCart/${id}`
+  ).catch((err) => {
+    console.log(err);
 
-      return null;
-    }
-  );
+    return null;
+  });
 
   if (cart) {
     const cartJson = await cart.json().catch((err) => {
@@ -52,7 +78,7 @@ export const postProduct = async ({
 }: {
   item: Omit<modules.IProduct, 'id'>;
 }) => {
-  const product = await fetch(`${process.env.server}/products`, {
+  const product = await fetch(`${process.env.NEXT_PUBLIC_SERVER} /products`, {
     method: 'POST',
     body: JSON.stringify(item),
   }).catch((err) => {
@@ -80,10 +106,13 @@ export const patchProduct = async ({
   item: Partial<modules.IProduct>;
   id: string | number;
 }) => {
-  const product = await fetch(`${process.env.server}/products/${id}`, {
-    method: 'PATCH',
-    body: JSON.stringify(item),
-  }).catch((err) => {
+  const product = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/products/${id}`,
+    {
+      method: 'PATCH',
+      body: JSON.stringify(item),
+    }
+  ).catch((err) => {
     console.log(err);
 
     return null;
@@ -110,13 +139,16 @@ export const patchCartShopping = async ({
 }) => {
   console.log(item, 'item');
 
-  const shoppingCart = await fetch(`${process.env.server}/shoppingCart/${id}`, {
-    method: 'PATCH',
-    body: JSON.stringify({ products: [item] }),
-    headers: {
-      'Content-type': 'application/json ; charset=UTF-8',
-    },
-  }).catch((err) => {
+  const shoppingCart = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/shoppingCart/${id}`,
+    {
+      method: 'PATCH',
+      body: JSON.stringify({ products: [item] }),
+      headers: {
+        'Content-type': 'application/json ; charset=UTF-8',
+      },
+    }
+  ).catch((err) => {
     console.log(err);
 
     return null;
@@ -136,8 +168,8 @@ export const patchCartShopping = async ({
   return null;
 };
 export const menuServer = async () => {
-  const menu = await fetch(`${process.env.server}/menu`).catch((err) =>
-    console.log(err)
+  const menu = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/menu`).catch(
+    (err) => console.log(err)
   );
 
   if (menu) {
@@ -145,10 +177,7 @@ export const menuServer = async () => {
       console.log(err);
       return null;
     });
-    if (menuJson) {
-      const data = Object.values(menuJson)[0] as { [key: string]: string[] };
-      return data;
-    }
+    return menuJson;
   }
   return null;
 };

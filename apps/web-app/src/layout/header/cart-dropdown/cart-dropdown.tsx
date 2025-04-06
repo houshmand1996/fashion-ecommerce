@@ -21,7 +21,9 @@ const CartDropdown = () => {
     const data = await getCart(cartId);
     if (data) {
       const product = data.products.map(async (ar) => {
-        const product = await getProduct(ar.productId);
+        const [product] = (await getProduct({
+          id: ar.productId,
+        })) as modules.IProduct[];
         return product ? { ...product, quantity: ar.quantity } : null;
       });
       setNewProduct(await Promise.all(product));

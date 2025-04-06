@@ -1,4 +1,4 @@
-module modules {
+declare namespace modules {
   interface IProduct {
     id: number | string;
     name: string;
@@ -8,6 +8,8 @@ module modules {
     description: string;
     image: string;
     details: string;
+    gender?: string;
+    subCategory?: string;
   }
   interface IShoppingCart {
     id: number | string;

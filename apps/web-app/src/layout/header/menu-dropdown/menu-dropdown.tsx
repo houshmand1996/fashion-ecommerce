@@ -10,7 +10,7 @@ import {
   InstagramIcon,
   YouTubeIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
+import { cn, DialogClose } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Dropdown } from '@code-dudes/fashion-ecommerce/web-app/components';
 import { useEffect, useState } from 'react';
 import { menuServer } from 'apps/web-app/lib/db';
@@ -21,11 +21,16 @@ const MenuDropdown = () => {
     const res = await menuServer();
     setMenu(res);
   };
+  const gender = ['women', 'men', 'kid'];
   const [active, setActive] = useState(0);
+  const [isClose, setISclose] = useState(false);
   const [menu, setMenu] = useState<{ [key: string]: string[] } | null>(null);
   useEffect(() => {
     res();
   }, []);
+  useEffect(() => {
+    document.body.classList.replace('overflow-hidden', 'overflow-x-clip');
+  }, [isClose]);
 
   return (
     <Dropdown
@@ -36,7 +41,18 @@ const MenuDropdown = () => {
         mt-5 *:cursor-pointer
         "
       >
-        <p onClick={() => setActive(0)} className={active ? 'opacity-50' : ''}>
+        {gender.map((ar, i) => (
+          <p
+            key={ar}
+            className={active != i ? 'opacity-50' : ''}
+            onClick={() => {
+              setActive(i);
+            }}
+          >
+            {ar}
+          </p>
+        ))}
+        {/* <p onClick={() => setActive(0)} className={active ? 'opacity-50' : ''}>
           women
         </p>
         <p
@@ -50,7 +66,7 @@ const MenuDropdown = () => {
           className={active != 2 ? 'opacity-50' : ''}
         >
           kid
-        </p>
+        </p> */}
       </div>
       <div className="w-page px-5 relative mt-[3.85px] ">
         <SeparatorIcon
@@ -79,11 +95,17 @@ const MenuDropdown = () => {
                 <DownIcon className="fill-none mr-[41.42px] " />
               </label>
 
-              <div className="hidden ml-9 peer-checked:inline-block">
+              <div className="hidden ml-9 peer-checked:flex flex-col ">
                 {menu[ar].map((arr) => (
-                  <div key={arr}>
-                    <Link href={'/search/' + arr}>{arr}</Link>
-                  </div>
+                  <DialogClose key={arr} asChild className="justify-start">
+                    <Link
+                      href={'/search/' + gender[active] + '/' + ar + '/' + arr}
+                      className="w-full"
+                      onClick={() => setISclose(true)}
+                    >
+                      {arr}
+                    </Link>
+                  </DialogClose>
                 ))}
               </div>
             </div>

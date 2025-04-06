@@ -1,10 +1,10 @@
 {
   "menu": {
-    "New": ["a", "b"],
+    "New": ["latest", "trending", "featured"],
     "Apparel": [
       "outer",
       "dress",
-      "blouse/shirt",
+      "blouse_shirt",
       "t-shirt",
       "knitwear",
       "skirt",
@@ -12,9 +12,30 @@
       "denim",
       "kids"
     ],
-    "Bag": ["a", "b", "c"],
-    "Shoes": ["a", "b"],
-    "Beauty": ["a", "b"],
-    "Accessories": ["a", "b"]
+    "Bag": [
+      "shoulder_bag",
+      "tote_bag",
+      "backpack",
+      "clutch",
+      "crossbody_bag",
+      "duffle_bag"
+    ],
+    "Shoes": ["sneakers", "boots", "heels", "flats", "sandals", "loafers"],
+    "Beauty": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "nail_care",
+      "tools"
+    ],
+    "Accessories": [
+      "jewelry",
+      "watches",
+      "sunglasses",
+      "hats",
+      "scarves",
+      "belts"
+    ]
   }
 }

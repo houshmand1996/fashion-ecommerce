@@ -22,22 +22,42 @@ router.get('/:id', (req, res) => {
 });
 router.get('/', (req, res) => {
   const data = ReadFile(dbPath, req.baseUrl);
-
+  const query = req.query;
   if (!data) {
     return res.status(404).json('no database find');
   }
-  const value = Object.values(data)[0];
+  let value = Object.values(data)[0];
   const firstLimit = req.query['limit'];
-  if (firstLimit && typeof firstLimit === 'string') {
-    const limit = parseInt(firstLimit);
+  const category = req.query['category'];
+  const gender = req.query['gender'];
+  const subCategory = req.query['subCategory'];
+  console.log(category);
 
-    if (!isNaN(limit) && limit > 0) {
-      if (Array.isArray(value))
-        return res.status(200).json(value.slice(0, limit));
-      return res.status(404).json('is not array');
-    }
+  if (typeof category == 'string') {
+    if (Array.isArray(value)) {
+      value = value.filter((ar) => ar.category == category);
+    } else return res.status(404).json('is not array');
   }
-  return res.status(200).json(data);
+  if (typeof gender == 'string') {
+    if (Array.isArray(value)) {
+      value = value.filter((ar) => ar.gender == gender);
+    } else return res.status(404).json('is not array');
+  }
+  if (typeof subCategory == 'string') {
+    if (Array.isArray(value)) {
+      value = value.filter((ar) => ar.subCategory == subCategory);
+    } else return res.status(404).json('is not array');
+  }
+
+  if (
+    typeof firstLimit == 'string' &&
+    !isNaN(parseInt(firstLimit)) &&
+    parseInt(firstLimit) > 0
+  ) {
+    if (Array.isArray(value)) value = value.slice(0, parseInt(firstLimit));
+    else return res.status(404).json('is not array');
+  }
+  return res.status(200).json(value);
 });
 router.post('/', (req, res) => {
   const data = ReadFile(dbPath, req.baseUrl);

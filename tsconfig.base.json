@@ -14,7 +14,12 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "typeRoots": ["./types", "node_modules/@types", "vite/client/@types"],
+    "typeRoots": [
+      "./types",
+      "node_modules/@types",
+      "vite/client/@types",
+      "@nx/react/typings/cssmodule.d.ts"
+    ],
     "types": ["global", "product"],
     "baseUrl": ".",
     "paths": {

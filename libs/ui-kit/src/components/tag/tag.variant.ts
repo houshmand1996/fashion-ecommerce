@@ -1,7 +1,6 @@
 import { cva } from 'class-variance-authority';
-import React from 'react';
 export const tagVariants = cva(
-  'flex inline-flex items-start body-large rounded-[30px] py-2 px-[10px] text-body',
+  'flex inline-flex items-start text-[14px]/[16px] tracking-[0.14px] rounded-[30px] py-2 px-[10px] text-body',
   {
     variants: {
       styles: {

@@ -4,12 +4,10 @@ import { LayoutType } from '../layout';
 
 const Layout: FC<LayoutType> = ({ children }) => {
   return (
-    <div>
-      <div className="h-full w-full flex-1 flex flex-col">
-        <Header />
-        <div className="flex-1">{children}</div>
-        <Footer />
-      </div>
+    <div className="h-full w-full flex-1 flex flex-col">
+      <Header />
+      <div className="flex-1">{children}</div>
+      <Footer />
     </div>
   );
 };
