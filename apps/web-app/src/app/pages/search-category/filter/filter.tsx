@@ -4,6 +4,7 @@ import {
   CloseIcon,
   DownIcon,
   FilterIcon,
+  GalleryIcon,
   Group198Icon,
   ListviewIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
@@ -15,9 +16,9 @@ export const Filter = ({
   array,
   setIsListView,
 }: {
-  isListView: boolean;
+  isListView: 0 | 1 | 2;
   array: string[];
-  setIsListView: Dispatch<SetStateAction<boolean>>;
+  setIsListView: Dispatch<SetStateAction<0 | 1 | 2>>;
 }) => {
   const length = array.length;
   const path = usePathname();
@@ -25,13 +26,20 @@ export const Filter = ({
     <div
       id="filter"
       className={cn(
-        ' w-full flex flex-col gap-3 ',
-        isListView ? 'h-10 mt-3 mb-[26px]' : 'h-[90px] mt-[17px] mb-[11.18px]'
+        ' w-full flex flex-col',
+        isListView > 1
+          ? 'gap-[13.89px] pl-[15.8px] pt-[1.89px] pr-4 pb-[11px] mt-3 mp-[5px]'
+          : isListView
+          ? 'h-10 mt-3 mb-[26px]'
+          : 'h-[90px] mt-[17px] mb-[11.18px]  gap-3 '
       )}
     >
       <div
         id="innerFilter"
-        className="flex w-full h-10 py-[1.89px] pl-[15.8px] pr-4 justify-center items-center"
+        className={cn(
+          'flex w-full  pr-4 justify-center items-center',
+          isListView > 1 ? 'h-[36.212px]' : 'h-10  py-[1.89px] pl-[15.8px]'
+        )}
       >
         <div className="w-full flex items-center justify-between">
           <p
@@ -48,11 +56,15 @@ export const Filter = ({
               <DownIcon className="w-4 h-4 opacity-50" />
             </div>
             <button
-              onClick={() => setIsListView(!isListView)}
+              onClick={() =>
+                setIsListView(isListView > 1 ? 0 : ((isListView + 1) as 1 | 2))
+              }
               className="w-9 h-9 bg-[#C4C4C4] bg-opacity-10 rounded-full flex items-center justify-center ml-2"
             >
-              {isListView ? (
+              {isListView > 1 ? (
                 <Group198Icon className="w-5 h-5 opacity-50 fill-none" />
+              ) : isListView ? (
+                <GalleryIcon className="w-5 h-5 opacity-50 fill-none" />
               ) : (
                 <ListviewIcon className="w-5 h-5 opacity-50 fill-none" />
               )}
@@ -63,8 +75,14 @@ export const Filter = ({
           </div>
         </div>
       </div>
-      {!isListView && (
-        <div id="tag" className="flex pl-[17px] gap-[7px]">
+      {!(isListView == 1) && (
+        <div
+          id="tag"
+          className={cn(
+            'flex  ',
+            isListView > 1 ? 'gap-2 ' : 'gap-[7px] pl-[17px]'
+          )}
+        >
           {array.map(
             (ar, i) =>
               i < length - 1 && (

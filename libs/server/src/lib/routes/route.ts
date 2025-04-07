@@ -22,7 +22,6 @@ router.get('/:id', (req, res) => {
 });
 router.get('/', (req, res) => {
   const data = ReadFile(dbPath, req.baseUrl);
-  const query = req.query;
   if (!data) {
     return res.status(404).json('no database find');
   }
@@ -31,7 +30,6 @@ router.get('/', (req, res) => {
   const category = req.query['category'];
   const gender = req.query['gender'];
   const subCategory = req.query['subCategory'];
-  console.log(category);
 
   if (typeof category == 'string') {
     if (Array.isArray(value)) {

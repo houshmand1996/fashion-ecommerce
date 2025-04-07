@@ -12,14 +12,15 @@ export const CatchAllCategory = ({
   item: modules.IProduct[] | null;
 }) => {
   const array = params.category;
-  const perPage = 10;
   const [inPage, setInPage] = useState(1);
-  const page = item ? Math.ceil(item.length / 10) : 1;
+
+  const [isListView, setIsListView] = useState<0 | 1 | 2>(0);
+  const perPage = isListView > 1 ? 5 : 10;
+  const page = item ? Math.ceil(item.length / perPage) : 1;
   const pageInArray = Array(page)
     .fill(0)
     .map((_ar, index) => index + 1);
 
-  const [isListView, setIsListView] = useState(false);
   useEffect(() => {
     if (!document) return;
     window.scrollTo({ top: 0, behavior: 'smooth' });

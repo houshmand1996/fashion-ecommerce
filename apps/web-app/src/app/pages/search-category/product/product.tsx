@@ -1,12 +1,16 @@
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import {
+  FullProduct,
   GridViewProduct,
   ListViewProduct,
 } from '@code-dudes/fashion-ecommerce/web-app/components';
 import Link from 'next/link';
 const iLoveProduct = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-  e.stopPropagation();
+  console.log('get click');
 
+  e.stopPropagation();
   e.preventDefault();
+  e.currentTarget.classList.toggle('fill-none');
   e.currentTarget.classList.toggle('fill-blue-400');
 };
 export const Product = ({
@@ -18,16 +22,30 @@ export const Product = ({
   item: modules.IProduct[] | null;
   inPage: number;
   perPage: number;
-  isListView: boolean;
+  isListView: 0 | 1 | 2;
 }) => {
   return (
-    <div className="flex flex-wrap gap-3 justify-start items-start pl-4 pr-[17px] h-[1542.22px] content-start">
+    <div
+      className={cn(
+        'flex flex-wrap gap-3 justify-start items-start pl-4 pr-[17px]  content-start',
+        isListView ? 'h-[2737.22px]' : 'h-[1542.22px]'
+      )}
+    >
       {item?.map(
         (ar, i) =>
           i < inPage * perPage &&
-          i >= inPage * perPage - 10 && (
+          i >= inPage * perPage - perPage && (
             <Link href={'/'} key={ar.id}>
-              {isListView ? (
+              {isListView > 1 ? (
+                <FullProduct
+                  item={{
+                    image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
+                    details: ar.details,
+                    name: ar.name,
+                    price: ar.price,
+                  }}
+                />
+              ) : isListView ? (
                 <ListViewProduct
                   iLoveProduct={iLoveProduct}
                   item={{

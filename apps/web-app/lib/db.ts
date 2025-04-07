@@ -1,11 +1,8 @@
 'use server';
 const fetchProduct = async (server: string) => {
-  console.log(server, 'server is');
-
   try {
     const product = await fetch(server);
     const productJson = await product.json();
-    console.log(productJson, 'productJson', Array.isArray(productJson));
 
     if (Object.keys(productJson).length === 0) {
       return null;
@@ -30,12 +27,10 @@ export const getProduct = async ({
 }) => {
   const baseUrl = `${process.env.NEXT_PUBLIC_SERVER}/products`;
   const queryParams = new URLSearchParams();
-  console.log();
 
   if (id) {
     // If `id` is provided, fetch the specific product
     const server = `${baseUrl}/${id}`;
-    console.log('server is', server);
     return fetchProduct(server);
   }
 
@@ -45,7 +40,6 @@ export const getProduct = async ({
   if (subCategory) queryParams.append('subCategory', subCategory);
 
   const server = queryParams.toString() ? `${baseUrl}?${queryParams}` : baseUrl;
-  console.log('server is', server);
 
   return fetchProduct(server);
 };
@@ -137,8 +131,6 @@ export const patchCartShopping = async ({
   item: { productId: number | string; quantity: number | string };
   id: string | number;
 }) => {
-  console.log(item, 'item');
-
   const shoppingCart = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/shoppingCart/${id}`,
     {
@@ -159,7 +151,6 @@ export const patchCartShopping = async ({
       console.log(err);
       return null;
     });
-    console.log(shoppingCartJson);
 
     if (shoppingCartJson && shoppingCartJson[0]) {
       return shoppingCartJson[0] as modules.IShoppingCart;
