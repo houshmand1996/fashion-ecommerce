@@ -36,7 +36,6 @@ export const CardSlider: FC<CardSliderType> = ({ item }) => {
       <Group12Icon
         onClick={(e) => {
           const value = e.clientX;
-          console.log(value);
 
           if (value <= 193 && value > 184) {
             setGroup(1);

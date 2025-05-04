@@ -1,12 +1,12 @@
 'use client';
 import * as React from 'react';
-import { cn, stableDialogRef, RefProvider } from '../../lib';
+import { cn, useStableDialogRef, RefProvider } from '../../lib';
 import type { DialogProps } from './dialog.type';
 import { dialogVariants } from './dialog-menu.variant';
 import { Button, ButtonProps } from '../button';
 
 export const DialogClose: React.FC<ButtonProps> = (props) => {
-  const dialogRef = stableDialogRef();
+  const dialogRef = useStableDialogRef();
 
   return (
     <Button
@@ -22,7 +22,7 @@ export const DialogClose: React.FC<ButtonProps> = (props) => {
   );
 };
 export const DialogTrigger: React.FC<ButtonProps> = (props) => {
-  const dialogRef = stableDialogRef();
+  const dialogRef = useStableDialogRef();
   return (
     <Button
       onClickCapture={() => {
@@ -36,7 +36,7 @@ export const DialogTrigger: React.FC<ButtonProps> = (props) => {
 };
 export const DialogContent = React.forwardRef<HTMLDialogElement, DialogProps>(
   ({ className, ...props }, ref) => {
-    const dialogRef = stableDialogRef();
+    const dialogRef = useStableDialogRef();
     return (
       <dialog
         className={cn(dialogVariants({ className }))}

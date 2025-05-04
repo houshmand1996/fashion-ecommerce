@@ -9,7 +9,7 @@ export const FullProduct: FC<
     iLoveProduct?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
   }
 > = ({ item, className, iLoveProduct }) => {
-  const { image, name, price, details } = item;
+  const { image, name, price, description } = item;
   return (
     <div
       className={cn(
@@ -32,7 +32,7 @@ export const FullProduct: FC<
       </div>
       <p className="text-black title w-full h-[33px] flex-shrink-0">{name}</p>
       <p className="text-label text-center body-large w-[268px] h-6 truncate ">
-        {details}
+        {description}
       </p>
 
       <p className="text-secondary font-TenorSans text-lg/[14px]  capitalize w-[45px] h-[14px] absolute bottom-0 right-0">

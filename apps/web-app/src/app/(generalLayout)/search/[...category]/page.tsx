@@ -1,4 +1,4 @@
-import { getProduct, menuServer } from 'apps/web-app/lib/db';
+import { getProduct, getProducts } from 'apps/web-app/lib/db';
 import { CatchAllCategory } from '../../../pages';
 
 const page = async ({ params }: { params: { category: string[] } }) => {
@@ -37,7 +37,7 @@ const page = async ({ params }: { params: { category: string[] } }) => {
   if (params.category[0]) {
     let item: modules.IProduct[] = [];
     try {
-      item = (await getProduct({
+      item = (await getProducts({
         category: parsed.category || undefined,
         gender: parsed.gender || undefined,
         subCategory: parsed.type || undefined,
@@ -45,6 +45,7 @@ const page = async ({ params }: { params: { category: string[] } }) => {
     } catch (error) {
       console.error('Error fetching product:', error);
     }
+
     return (
       <>
         {item && item.length > 0 ? (

@@ -4,7 +4,6 @@ declare namespace modules {
     name: string;
     category: string;
     price: number | string;
-    stock: number | string;
     description: string;
     image: string;
     details: string;
@@ -13,10 +12,27 @@ declare namespace modules {
   }
   interface IShoppingCart {
     id: number | string;
-    userId: number | string;
-    products: {
-      productId: number | string;
-      quantity: number | string;
-    }[];
+    cart_id: number | string;
+    name: string;
+    image: string;
+    description: string;
+    price: string;
+    qty: number | string;
+    color_hex: string;
+    size_name: string;
+    product_variant_id: string | number;
+  }
+  interface BProduct extends IProduct {
+    stock: number;
+
+    product_variant_id: number;
+    color_name: string;
+    color_hex: string;
+    original_price?: string;
+    size_name: string | null;
+    product_materials: string | null;
+    care_instruction: string | null;
+    product_care_icon: string | null;
+    variation_name: string | null;
   }
 }

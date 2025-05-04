@@ -35,10 +35,12 @@ const page = () => {
         <Cart
           item={{
             name: 'lamerei',
-            details: 'Recycle Boucle Knit Cardigan Pink',
+            description: 'Recycle Boucle Knit Cardigan Pink',
             image: '/Recycle Boucle Knit Cardigan Pink.png',
             price: 120,
             quantity: 1,
+            color: '#088888',
+            size: 'L',
           }}
         />
       </div>

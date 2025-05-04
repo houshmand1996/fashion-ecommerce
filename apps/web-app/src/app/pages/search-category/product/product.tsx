@@ -6,8 +6,6 @@ import {
 } from '@code-dudes/fashion-ecommerce/web-app/components';
 import Link from 'next/link';
 const iLoveProduct = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-  console.log('get click');
-
   e.stopPropagation();
   e.preventDefault();
   e.currentTarget.classList.toggle('fill-none');
@@ -35,12 +33,12 @@ export const Product = ({
         (ar, i) =>
           i < inPage * perPage &&
           i >= inPage * perPage - perPage && (
-            <Link href={'/'} key={ar.id}>
+            <Link href={'/products/' + ar.id} key={ar.id}>
               {isListView > 1 ? (
                 <FullProduct
                   item={{
                     image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
-                    details: ar.details,
+                    description: ar.description,
                     name: ar.name,
                     price: ar.price,
                   }}
@@ -50,7 +48,7 @@ export const Product = ({
                   iLoveProduct={iLoveProduct}
                   item={{
                     image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
-                    details: ar.details,
+                    description: ar.description,
                     name: ar.name,
                     price: ar.price,
                     rating: 1.2,
@@ -61,7 +59,7 @@ export const Product = ({
                   iLoveProduct={iLoveProduct}
                   item={{
                     image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
-                    details: ar.details,
+                    description: ar.description,
                     name: ar.name,
                     price: ar.price,
                   }}

@@ -13,7 +13,7 @@ export const Cart = ({
   onclickMinus,
   onclickPlus,
 }: CartProps) => {
-  const { details, image, name, price, quantity } = item;
+  const { description, image, name, price, quantity, color, size } = item;
   return (
     <div className={cn('w-[313px] h-[134px] flex', className)}>
       <Image
@@ -23,12 +23,28 @@ export const Cart = ({
         src={image}
         alt=""
       />
-      <div className=" flex-col flex-grow inline-flex items-start gap-3 w-[201px] h-[116px] ml-[10.72px]">
+      <div className=" flex-col flex-grow inline-flex items-start gap-2 w-[201px] h-[133px] ml-[10.72px]">
         <div className="flex flex-col w-fit items-start gap-[6px]">
           <p className="w-full h-5 uppercase text-black subtitle-medium">
             {name}
           </p>
-          <p className="body-small text-label w-[201px] h-fit">{details}</p>
+          <p className="body-small text-label w-[201px] h-5 truncate">
+            {description}
+          </p>
+          <div className="flex gap-3 w-full">
+            {color && (
+              <div
+                className="w-5 h-5  border-2 rounded-full flex items-center justify-center
+                border-[#888]"
+                style={{ backgroundColor: color }}
+              />
+            )}
+            {size && (
+              <div className=" w-5 h-5 border-[#DEDEDE] border-[1px] rounded-full text-[9px]/[10px] text-center text-label flex justify-center items-center">
+                {size}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-[78px] h-6 flex justify-between items-center">
           <button className="relative" onClick={onclickMinus}>

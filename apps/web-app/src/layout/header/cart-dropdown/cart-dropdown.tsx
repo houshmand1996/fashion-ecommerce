@@ -1,45 +1,49 @@
 'use client';
 import { ShoppingBagIcon } from '@code-dudes/fashion-ecommerce/icon';
-import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
+import { Button, cn, DialogClose } from '@code-dudes/fashion-ecommerce/ui-kit';
 import {
   Cart,
   Dropdown,
 } from '@code-dudes/fashion-ecommerce/web-app/components';
-import { getCart, getProduct, patchCartShopping } from 'apps/web-app/lib/db';
-import { useEffect, useState } from 'react';
+import { getCart, updateCartItem } from 'apps/web-app/lib/db';
+import Link from 'next/link';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+const getData = async ({ cartId }: { cartId: string }) => {
+  const data = (await getCart(cartId)) as modules.IShoppingCart[] | null;
+  console.log(data, 'cart data');
 
-export type ShoppingCart = modules.IProduct & {
-  quantity: number | string;
+  return data;
 };
-const CartDropdown = () => {
-  const cartId = 2;
-  const [change, setChange] = useState(false);
-  const [newProduct, setNewProduct] = useState<(ShoppingCart | null)[] | null>(
-    null
-  );
-  const getData = async () => {
-    const data = await getCart(cartId);
-    if (data) {
-      const product = data.products.map(async (ar) => {
-        const [product] = (await getProduct({
-          id: ar.productId,
-        })) as modules.IProduct[];
-        return product ? { ...product, quantity: ar.quantity } : null;
-      });
-      setNewProduct(await Promise.all(product));
-    }
-  };
-  useEffect(() => {
-    getData();
-  }, [change]);
-  const totalPrice = newProduct
-    ? newProduct
-        .filter((ar): ar is ShoppingCart => ar !== null)
-        .reduce(
-          (total, cur) => total + Number(cur.price) * Number(cur.quantity),
-          0
-        )
+const CartDropdown = ({ cartId }: { cartId: string | undefined }) => {
+  const queryClient = useQueryClient();
+  if (!cartId) {
+    return <></>;
+  }
+  const { data } = useQuery({
+    queryKey: ['cart', cartId],
+    queryFn: async () => await getData({ cartId }),
+  });
+  const { mutate: updateItem } = useMutation({
+    mutationKey: ['cart', cartId],
+
+    mutationFn: updateCartItem,
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries({ queryKey: ['cart', cartId] });
+      console.log('update cart');
+    },
+  });
+  const totalPrice = data
+    ? data
+        .filter((ar) => ar !== null)
+        .reduce((total, cur) => total + Number(cur.price) * Number(cur.qty), 0)
     : null;
+  const totalQty = data
+    ? data
+        .filter((ar) => ar !== null)
+        .reduce((total, cur) => total + Number(cur.qty), 0)
+    : null;
+  const isCartEmpty = !(data && data?.length > 0 && totalQty && totalQty > 0);
   return (
     <Dropdown
       triggerChildren={
@@ -52,46 +56,42 @@ const CartDropdown = () => {
         <p
           className={cn(
             'ml-[17px] mt-2 text-body uppercase',
-            newProduct ? 'title' : 'text-[14px]/[34.5px] tracking-[3px]'
+            !isCartEmpty ? 'title' : 'text-[14px]/[34.5px] tracking-[3px]'
           )}
         >
           cart
         </p>
         <div className=" flex-col flex justify-between h-full flex-1 ">
-          {newProduct ? (
+          {!isCartEmpty ? (
             <div className="flex-col flex justify-between h-full flex-1">
               <div className="normal-case ml-4 mt-1 h-[355px] flex flex-col gap-4 overflow-y-scroll">
-                {newProduct.map(
+                {data.map(
                   (ar, index) =>
                     ar &&
-                    Number(ar.quantity) > 0 && (
+                    Number(ar.qty) > 0 && (
                       <Cart
                         item={{
-                          details: ar.description,
-                          image: `http://localhost:8001/${ar.image}`,
+                          description: ar.description,
+                          image: process.env.NEXT_PUBLIC_SERVER + ar.image,
                           name: ar.name,
                           price: ar.price,
-                          quantity: ar.quantity,
+                          quantity: ar.qty,
+                          color: ar.color_hex,
+                          size: ar.size_name,
                         }}
                         key={index}
                         onclickMinus={() =>
-                          patchCartShopping({
-                            id: cartId,
-                            item: {
-                              productId: ar.id,
-                              quantity: Number(ar.quantity) - 1,
-                            },
-                          }).then(() => setChange(!change))
+                          updateItem({
+                            id: Number(ar.id),
+                            qty: Number(ar.qty) - 1,
+                          })
                         }
-                        onclickPlus={() => {
-                          patchCartShopping({
-                            id: cartId,
-                            item: {
-                              productId: ar.id,
-                              quantity: Number(ar.quantity) + 1,
-                            },
-                          }).then(() => setChange(!change));
-                        }}
+                        onclickPlus={() =>
+                          updateItem({
+                            id: Number(ar.id),
+                            qty: Number(ar.qty) + 1,
+                          })
+                        }
                       />
                     )
                 )}
@@ -116,13 +116,28 @@ const CartDropdown = () => {
           )}
         </div>
       </div>
+
       <Button
         size={'lg'}
         state={'primary'}
         className="w-full  !leading-[26px] "
+        asChild
       >
-        <ShoppingBagIcon className="w-5 h-5 text-off-white fill-none" />
-        {newProduct ? 'BUY NOW' : 'Continue shopping'}
+        {!isCartEmpty ? (
+          <DialogClose asChild>
+            <Link href={'/checkout'}>
+              <ShoppingBagIcon className="w-5 h-5 text-off-white fill-none" />
+              BUY NOW
+            </Link>
+          </DialogClose>
+        ) : (
+          <DialogClose asChild>
+            <Link href={'/'}>
+              <ShoppingBagIcon className="w-5 h-5 text-off-white fill-none" />
+              Continue shopping
+            </Link>
+          </DialogClose>
+        )}
       </Button>
     </Dropdown>
   );

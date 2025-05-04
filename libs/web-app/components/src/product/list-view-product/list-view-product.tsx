@@ -13,7 +13,7 @@ export const ListViewProduct: FC<
     iLoveProduct?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
   }
 > = ({ item, iLoveProduct, className }) => {
-  const { image, name, price, details, rating } = item;
+  const { image, name, price, description, rating } = item;
   return (
     <div
       className={cn(
@@ -38,7 +38,7 @@ export const ListViewProduct: FC<
             <div className="flex min-w-[206px] flex-col items-start truncate">
               <p className="text-black subtitle-medium">{name}</p>
               <p className="w-[235px] h-[20px] text-label body-medium mr-1 text-center">
-                {details}
+                {description}
               </p>
             </div>
             <p className="text-primary price">${price}</p>

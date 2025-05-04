@@ -13,15 +13,52 @@ import {
 import { cn, DialogClose } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Dropdown } from '@code-dudes/fashion-ecommerce/web-app/components';
 import { useEffect, useState } from 'react';
-import { menuServer } from 'apps/web-app/lib/db';
 import Link from 'next/link';
 
 const MenuDropdown = () => {
   const res = async () => {
-    const res = await menuServer();
+    const res = {
+      New: ['latest', 'trending', 'featured'],
+      Apparel: [
+        'outer',
+        'dress',
+        'blouse_shirt',
+        't-shirt',
+        'knitwear',
+        'skirt',
+        'pants',
+        'denim',
+      ],
+      Bag: [
+        'shoulder_bag',
+        'tote_bag',
+        'backpack',
+        'clutch',
+        'crossbody_bag',
+        'duffle_bag',
+      ],
+      Shoes: ['sneakers', 'boots', 'heels', 'flats', 'sandals', 'loafers'],
+      Beauty: [
+        'skincare',
+        'makeup',
+        'haircare',
+        'fragrance',
+        'nail_care',
+        'tools',
+      ],
+      Accessories: [
+        'jewelry',
+        'watches',
+        'sunglasses',
+        'hats',
+        'scarves',
+        'belts',
+      ],
+    };
+
     setMenu(res);
   };
-  const gender = ['women', 'men', 'kid'];
+  const gender = ['women', 'mans', 'kids'];
   const [active, setActive] = useState(0);
   const [isClose, setISclose] = useState(false);
   const [menu, setMenu] = useState<{ [key: string]: string[] } | null>(null);

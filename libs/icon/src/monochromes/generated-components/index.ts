@@ -48,3 +48,4 @@ export { default as BackwardIcon } from './backward.icon';
 export { default as MediaPlayerIcon } from './media-player.icon';
 export { default as SeparatorIcon } from './separator.icon';
 export { default as ShoppingBagIcon } from './shopping-bag.icon';
+export { default as RefreshIcon } from './refresh.icon';

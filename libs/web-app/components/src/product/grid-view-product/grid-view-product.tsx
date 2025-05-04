@@ -9,7 +9,7 @@ export const GridViewProduct: FC<
     iLoveProduct?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
   }
 > = ({ item, className, iLoveProduct }) => {
-  const { image, name, price, details } = item;
+  const { image, name, price, description } = item;
   return (
     <div className={cn('inline-flex flex-col item-start gap-2', className)}>
       <div className="w-[165px] h-[220px] relative">
@@ -29,7 +29,9 @@ export const GridViewProduct: FC<
       <div className="flex pl-1 flex-col items-start gap-1">
         <div className="flex w-[159px] flex-col items-start body-small truncate">
           <p className=" h-[15px] text-black ">{name}</p>
-          <p className="w-[157px] h-[14px] lowercase  text-label ">{details}</p>
+          <p className="w-[157px] h-[18px] lowercase  text-label ">
+            {description}
+          </p>
         </div>
         <p className="text-primary price">${price}</p>
       </div>

@@ -1,174 +1,196 @@
 'use server';
-const fetchProduct = async (server: string) => {
-  try {
-    const product = await fetch(server);
-    const productJson = await product.json();
-
-    if (Object.keys(productJson).length === 0) {
-      return null;
-    }
-
-    return Array.isArray(productJson) ? productJson : [productJson];
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
-};
-export const getProduct = async ({
-  id,
+import mysql from 'mysql2';
+const pool = mysql
+  .createPool({
+    host: process.env['mysql_host'],
+    user: process.env['mysql_user'],
+    password: process.env['mysql_password'],
+    database: process.env['mysql_database'],
+    // port: Number(process.env['mysql_port']),
+  })
+  .promise();
+export const getProducts = async ({
   category,
   gender,
   subCategory,
+  limit,
+  id,
 }: {
-  id?: number | string;
   category?: string;
   gender?: string;
   subCategory?: string;
+  limit?: number;
+  id?: string;
 }) => {
-  const baseUrl = `${process.env.NEXT_PUBLIC_SERVER}/products`;
-  const queryParams = new URLSearchParams();
+  const conditions: string[] = [];
+  const params: (string | undefined)[] = [];
 
+  if (gender) {
+    conditions.push('(pg.gender_name = ? OR pc.product_gender_id IS NULL)');
+    params.push(gender);
+  }
+  if (category) {
+    conditions.push('pc2.category_name = ?');
+    params.push(category);
+  }
+  if (subCategory) {
+    conditions.push('pc.category_name = ?');
+    params.push(subCategory);
+  }
   if (id) {
-    // If `id` is provided, fetch the specific product
-    const server = `${baseUrl}/${id}`;
-    return fetchProduct(server);
+    conditions.push('p.product_id!=?');
+    params.push(id);
   }
+  const whereClause =
+    conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
-  // Add query parameters based on the provided filters
-  if (category) queryParams.append('category', category);
-  if (gender) queryParams.append('gender', gender);
-  if (subCategory) queryParams.append('subCategory', subCategory);
+  const sql = `select
+  p.product_id as id,
+  p.product_name as name,
+  p.description,
+  pg.gender_name,
+  pc2.category_name as category,
+  pc.category_name as subcategory,
+  pi2.sales_price as price,
+  pi3.image_path as image
+from
+  products p
+JOIN product_item pi2 on
+  pi2.product_id = p.product_id
+left JOIN product_image pi3 on
+  pi3.product_item_id = pi2.product_item_id 
+left join product_category pc on p.product_category_id = pc.product_category_id
+LEFT join product_category pc2 on pc2.product_category_id = pc.parent_category_id
+left join product_gender pg on pg.gender_id = pc.product_gender_id
+${whereClause}
+group by p.product_id
+${limit ? `limit ${limit}` : ''}
+;`;
 
-  const server = queryParams.toString() ? `${baseUrl}?${queryParams}` : baseUrl;
+  const result = await pool.execute(sql, params);
 
-  return fetchProduct(server);
+  return result[0];
 };
-export const getCart = async (id: number | string) => {
-  const cart = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/shoppingCart/${id}`
-  ).catch((err) => {
-    console.log(err);
+export const getProduct = async ({ id }: { id: number | string }) => {
+  const sql = `select 
+	pv.product_item_id as id,
+	pv.product_variant_id ,
+	p.product_name as name ,
+	pg.gender_name ,
+  p.product_materials ,
+  p.care_instruction,
+	pc2.category_name  as category,
+	pc.category_name as subCategory,
+	p.description,
+	pi2.original_price ,
+	pi2.sales_price as price,
+	c.color_name,
+  c.color_hex ,
+  c.color_id,
+	pi3.image_path as image,
+	pv.qty_in_stock as stock,
+	so.size_name,
+	pcv.variation_name ,
+	pc3.product_care_icon
+	from
+	products p
+JOIN product_item pi2 on
+	pi2.product_id = p.product_id
+left JOIN color c on
+	c.color_id = pi2.color_id
+left JOIN product_image pi3 on
+	pi3.product_item_id = pi2.product_item_id 
+	left join product_variation pv ON pv.product_item_id = pi2.product_item_id 
+left join product_category pc on  p.product_category_id= pc.product_category_id 
+LEFT join product_category pc2 on pc2.product_category_id =pc.parent_category_id
+left join product_gender pg on gender_id = pc.product_gender_id left join size_option so on so.size_id =pv.size_id
+	left join product_care_variation pcv on pcv.product_id = p.product_id
+left join product_care pc3  on pc3.product_care_id = pcv.product_care_id 
+  ${id ? 'WHERE p.product_id=?' : ''}
+  order by so.sort_order
+  ;`;
 
+  const result = await pool.execute(sql, [id]);
+  return result[0];
+};
+export const getCart = async (id: string | undefined) => {
+  let sql = '';
+  if (!id) {
     return null;
-  });
+  } else {
+    sql = `select cart_id from shopping_cart where user_id=?`;
+    const [firstRes] = (await pool.execute(sql, [id])) as [
+      { cart_id: string | number }[] | null,
+      any
+    ];
 
-  if (cart) {
-    const cartJson = await cart.json().catch((err) => {
-      console.log(err);
-      return null;
-    });
-    if (cartJson) {
-      if (Object.keys(cartJson).length === 0) {
-        return null;
-      }
-
-      return cartJson[0] as modules.IShoppingCart;
+    if (!(firstRes && firstRes?.length > 0)) {
+      sql = `INSERT INTO shopping_cart (user_id) VALUES (?);`;
+      const res = await pool.execute(sql, [id]);
+      console.log('res insert into shopping_cart ', res);
+    } else {
+      sql = `select 
+	sci.id,
+	sci.cart_id,
+  pv.product_variant_id,
+	p.product_name as name,
+	p.description,
+	pi2.sales_price as price,
+	sci.qty,pi3.image_path as image,
+  c.color_hex,
+  so.size_name
+from
+	shopping_cart_item sci 
+join product_variation pv on
+	pv.product_variant_id = sci.product_variant_id
+join product_item pi2 on
+	pi2.product_item_id = pv.product_item_id
+join products p on
+	pi2.product_id = p.product_id
+join product_image pi3 on pi3.product_item_id=pi2.product_item_id
+join color c on c.color_id=pi2.color_id
+join size_option so on so.size_id=pv.size_id
+where sci.cart_id=?
+group by pv.product_variant_id
+order by
+	sci.id ;`;
+      const result = await pool.execute(sql, [firstRes[0].cart_id]);
+      return result[0];
     }
   }
-  return null;
 };
-export const postProduct = async ({
-  item,
+export const postShoppingItem = async ({
+  productVariant,
+  user_id,
 }: {
-  item: Omit<modules.IProduct, 'id'>;
+  productVariant: string | number;
+  user_id: string | undefined;
 }) => {
-  const product = await fetch(`${process.env.NEXT_PUBLIC_SERVER} /products`, {
-    method: 'POST',
-    body: JSON.stringify(item),
-  }).catch((err) => {
-    console.log(err);
-
+  let sql = '';
+  if (!user_id) {
     return null;
-  });
-
-  if (product) {
-    const productJson = await product.json().catch((err) => {
-      console.log(err);
-      return null;
-    });
-
-    if (productJson && productJson[0]) {
-      return productJson[0] as modules.IProduct;
-    }
   }
-  return null;
+  sql = `select cart_id from shopping_cart where user_id = ?`;
+  const [firstRes] = (await pool.execute(sql, [user_id])) as [
+    { cart_id: string }[],
+    any
+  ];
+  console.log(firstRes, 'firstRes');
+
+  if (firstRes[0].cart_id) {
+    sql = `insert into shopping_cart_item(cart_id,product_variant_id,qty) values (?,?,?)`;
+    const result = pool.execute(sql, [firstRes[0].cart_id, productVariant, 1]);
+    console.log(result);
+  }
 };
-export const patchProduct = async ({
-  item,
+export const updateCartItem = async ({
+  qty,
   id,
 }: {
-  item: Partial<modules.IProduct>;
-  id: string | number;
+  qty: number;
+  id: number;
 }) => {
-  const product = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/products/${id}`,
-    {
-      method: 'PATCH',
-      body: JSON.stringify(item),
-    }
-  ).catch((err) => {
-    console.log(err);
-
-    return null;
-  });
-
-  if (product) {
-    const productJson = await product.json().catch((err) => {
-      console.log(err);
-      return null;
-    });
-
-    if (productJson && productJson[0]) {
-      return productJson[0] as modules.IProduct;
-    }
-  }
-  return null;
-};
-export const patchCartShopping = async ({
-  item,
-  id,
-}: {
-  item: { productId: number | string; quantity: number | string };
-  id: string | number;
-}) => {
-  const shoppingCart = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/shoppingCart/${id}`,
-    {
-      method: 'PATCH',
-      body: JSON.stringify({ products: [item] }),
-      headers: {
-        'Content-type': 'application/json ; charset=UTF-8',
-      },
-    }
-  ).catch((err) => {
-    console.log(err);
-
-    return null;
-  });
-
-  if (shoppingCart) {
-    const shoppingCartJson = await shoppingCart.json().catch((err) => {
-      console.log(err);
-      return null;
-    });
-
-    if (shoppingCartJson && shoppingCartJson[0]) {
-      return shoppingCartJson[0] as modules.IShoppingCart;
-    }
-  }
-  return null;
-};
-export const menuServer = async () => {
-  const menu = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/menu`).catch(
-    (err) => console.log(err)
-  );
-
-  if (menu) {
-    const menuJson = await menu.json().catch((err) => {
-      console.log(err);
-      return null;
-    });
-    return menuJson;
-  }
-  return null;
+  const sql = `UPDATE shopping_cart_item SET qty = ? WHERE id = ?`;
+  const result = await pool.execute(sql, [qty, id]);
+  console.log(result);
 };

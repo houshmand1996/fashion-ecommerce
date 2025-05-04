@@ -28,7 +28,7 @@ export const Filter = ({
       className={cn(
         ' w-full flex flex-col',
         isListView > 1
-          ? 'gap-[13.89px] pl-[15.8px] pt-[1.89px] pr-4 pb-[11px] mt-3 mp-[5px]'
+          ? 'gap-[13.89px] pl-[15.8px] pt-[1.89px] pr-4 pb-[11px] mt-3 mb-[5px]'
           : isListView
           ? 'h-10 mt-3 mb-[26px]'
           : 'h-[90px] mt-[17px] mb-[11.18px]  gap-3 '
