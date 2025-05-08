@@ -27,7 +27,6 @@ export const ProductDetail = ({
   const data = queryClient.getQueryData(['cart', userId]) as
     | modules.IShoppingCart[]
     | null;
-  console.log(data);
 
   const [picture, setPicture] = useState(0);
   const searchParams = useSearchParams();
@@ -44,7 +43,6 @@ export const ProductDetail = ({
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', userId] });
-      console.log('update cart');
     },
   });
   const { mutate: insertItem } = useMutation({
@@ -54,7 +52,6 @@ export const ProductDetail = ({
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', userId] });
-      console.log('update cart');
     },
   });
   const totalQty = product_variation.reduce((per, ar) => per + ar.stock, 0);

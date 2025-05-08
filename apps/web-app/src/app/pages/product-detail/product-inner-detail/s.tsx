@@ -20,12 +20,7 @@ const DynamicSVG = ({ src, className }: { src: string; className: string }) => {
       });
   }, [src, fill]);
 
-  return (
-    <div
-      className={className}
-      dangerouslySetInnerHTML={{ __html: svgContent }}
-    />
-  );
+  return <div dangerouslySetInnerHTML={{ __html: svgContent }} />;
 };
 
 export default DynamicSVG;

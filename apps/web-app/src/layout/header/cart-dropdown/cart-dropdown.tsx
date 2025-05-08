@@ -10,7 +10,6 @@ import Link from 'next/link';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 const getData = async ({ cartId }: { cartId: string }) => {
   const data = (await getCart(cartId)) as modules.IShoppingCart[] | null;
-  console.log(data, 'cart data');
 
   return data;
 };
@@ -30,7 +29,6 @@ const CartDropdown = ({ cartId }: { cartId: string | undefined }) => {
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', cartId] });
-      console.log('update cart');
     },
   });
   const totalPrice = data

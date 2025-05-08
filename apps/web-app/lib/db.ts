@@ -16,12 +16,15 @@ export const getProducts = async ({
   limit,
   id,
 }: {
-  category?: string;
-  gender?: string;
-  subCategory?: string;
+  category?: string | null;
+  gender?: string | null;
+  subCategory?: string | null;
   limit?: number;
   id?: string;
 }) => {
+  console.log('render getProducts');
+  console.log(process.env['mysql_user']);
+
   const conditions: string[] = [];
   const params: (string | undefined)[] = [];
 
@@ -72,6 +75,8 @@ ${limit ? `limit ${limit}` : ''}
   return result[0];
 };
 export const getProduct = async ({ id }: { id: number | string }) => {
+  console.log('render getProduct');
+
   const sql = `select 
 	pv.product_item_id as id,
 	pv.product_variant_id ,
@@ -159,6 +164,39 @@ order by
     }
   }
 };
+export const queryProduct = async ({ query }: { query: string }) => {
+  console.log('render queryProduct');
+
+  const sql = `select 
+    p.product_id as id,
+    p.product_name as name,
+    p.description,
+    pg.gender_name,
+    pc2.category_name as category,
+    pc.category_name as subcategory,
+    pi2.sales_price as price,
+    pi3.image_path as image
+  from
+    products p
+  JOIN product_item pi2 on
+    pi2.product_id = p.product_id
+  left JOIN product_image pi3 on
+    pi3.product_item_id = pi2.product_item_id 
+  left join product_category pc on p.product_category_id = pc.product_category_id
+  LEFT join product_category pc2 on pc2.product_category_id = pc.parent_category_id
+  left join product_gender pg on pg.gender_id = pc.product_gender_id
+  WHERE p.product_name LIKE ? or pg.gender_name LIKE ? or pc.category_name LIKE ?
+  or pc2.category_name LIKE ?
+  group by p.product_id;`;
+
+  const result = await pool.execute(sql, [
+    `%${query}%`,
+    `%${query}%`,
+    `%${query}%`,
+    `%${query}%`,
+  ]);
+  return result[0];
+};
 export const postShoppingItem = async ({
   productVariant,
   user_id,
@@ -166,6 +204,8 @@ export const postShoppingItem = async ({
   productVariant: string | number;
   user_id: string | undefined;
 }) => {
+  console.log('render postShoppingItem');
+
   let sql = '';
   if (!user_id) {
     return null;
@@ -175,12 +215,9 @@ export const postShoppingItem = async ({
     { cart_id: string }[],
     any
   ];
-  console.log(firstRes, 'firstRes');
-
   if (firstRes[0].cart_id) {
     sql = `insert into shopping_cart_item(cart_id,product_variant_id,qty) values (?,?,?)`;
     const result = pool.execute(sql, [firstRes[0].cart_id, productVariant, 1]);
-    console.log(result);
   }
 };
 export const updateCartItem = async ({
@@ -190,7 +227,8 @@ export const updateCartItem = async ({
   qty: number;
   id: number;
 }) => {
+  console.log('render updateCartItem');
+
   const sql = `UPDATE shopping_cart_item SET qty = ? WHERE id = ?`;
   const result = await pool.execute(sql, [qty, id]);
-  console.log(result);
 };

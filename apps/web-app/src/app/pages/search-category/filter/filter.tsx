@@ -17,11 +17,12 @@ export const Filter = ({
   setIsListView,
 }: {
   isListView: 0 | 1 | 2;
-  array: string[];
+  array?: string[] | number;
   setIsListView: Dispatch<SetStateAction<0 | 1 | 2>>;
 }) => {
-  const length = array.length;
+  const length = array && typeof array !== 'number' && array.length;
   const path = usePathname();
+  let p = !!length && array[length - 1];
   return (
     <div
       id="filter"
@@ -46,7 +47,7 @@ export const Filter = ({
             id="lastParam"
             className="text-body text-center text-[14px]/[14.84px] uppercase"
           >
-            {array[length - 1]}
+            {p}
           </p>
           <div className="flex">
             <div className="rounded-[33px] bg-opacity-10 bg-[#C4C4C4] w-[72.749px] h-9 flex justify-center items-center">
@@ -83,23 +84,19 @@ export const Filter = ({
             isListView > 1 ? 'gap-2 ' : 'gap-[7px] pl-[17px]'
           )}
         >
-          {array.map(
-            (ar, i) =>
-              i < length - 1 && (
-                <Tag key={i} className="items-center">
-                  {ar}
-                  <Link
-                    className=""
-                    href={path.replace('/' + ar, '')}
-                    onClick={() => {
-                      console.log(path.replace('/' + ar, ''));
-                    }}
-                  >
-                    <CloseIcon className="w-4 h-4" />
-                  </Link>
-                </Tag>
-              )
-          )}
+          {typeof array !== 'number' &&
+            length &&
+            array?.map(
+              (ar, i) =>
+                i < length - 1 && (
+                  <Tag key={i} className="items-center">
+                    {ar}
+                    <Link className="" href={path.replace('/' + ar, '')}>
+                      <CloseIcon className="w-4 h-4" />
+                    </Link>
+                  </Tag>
+                )
+            )}
         </div>
       )}
     </div>

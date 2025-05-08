@@ -52,7 +52,7 @@ export const ProductInnerDetail = ({
       <div className="pt-[13.77px] flex flex-col gap-4">
         {care.length > 0 &&
           care.map((ar, i) => (
-            <div className="flex gap-[12.53px]" key={i}>
+            <div className="flex gap-[12.53px] items-center" key={i}>
               <DynamicSVG
                 className="w-6 h-6 opacity-50 fill-none"
                 src={process.env.NEXT_PUBLIC_SERVER + ar.icon}
