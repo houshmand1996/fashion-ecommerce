@@ -31,13 +31,13 @@ export const Footer = () => {
       </div>
       <SeparatorIcon className="w-60 h-[9px] text-label mb-2" />
       <div className="w-full w-min-[375px] h-[55px] flex items-center pt-[10px] footer text-black text-center ">
-        <Link href={''} className="ml-[58px]">
+        <Link href={'/about'} className="ml-[58px]">
           About
         </Link>
-        <Link href={''} className="ml-[52px]">
+        <Link href={'/contactUs'} className="ml-[52px]">
           Contact
         </Link>
-        <Link href={''} className="ml-[52px]">
+        <Link href={'/blog'} className="ml-[52px]">
           Blog
         </Link>
       </div>
