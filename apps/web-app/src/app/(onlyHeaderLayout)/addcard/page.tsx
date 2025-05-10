@@ -2,31 +2,34 @@
 import { SeparatorIcon } from '@code-dudes/fashion-ecommerce/icon';
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
 import { useState } from 'react';
-import { CartSlider, InputForm } from '../../pages';
+import { CardSlider, InputForm } from '../../pages';
 
-const AddCart = () => {
+const AddCard = () => {
   const [name, setName] = useState('');
-  const [cartNumber, setCartNumber] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
   const [expMonth, setExpMonth] = useState('');
   const [expYear, setExpYear] = useState('');
+  const [cvv, setCvv] = useState('');
   return (
-    <form action="" className="h-full w-page flex-1 relative">
+    <div className="h-full w-page flex-1 relative">
       <p className="w-[312.321px] h-[32.576px] text-black text-center title uppercase ml-[46.19px] mt-[33.75px] ">
         Payment method
       </p>
       <SeparatorIcon className="w-[124.96px] h-[9.25px] text-label ml-[125.85px]" />
-      <CartSlider item={{ cartNumber, expMonth, expYear, name }} />
+      <CardSlider item={{ cardNumber, expMonth, expYear, name, cvv }} />
 
       <InputForm
         item={{
-          cartNumber,
+          cardNumber,
           expMonth,
           expYear,
           name,
-          setCartNumber,
+          setCardNumber,
           setExpMonth,
           setExpYear,
           setName,
+          cvv,
+          setCvv,
         }}
       />
       <Button
@@ -36,7 +39,7 @@ const AddCart = () => {
       >
         Add Card
       </Button>
-    </form>
+    </div>
   );
 };
-export default AddCart;
+export default AddCard;

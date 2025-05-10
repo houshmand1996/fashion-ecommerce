@@ -58,9 +58,24 @@ export const colorUtilities = {
 
   //border classes
   '.border-line': {
-    '--tw-bg-opacity': '1',
+    '--tw-border-opacity': '1',
 
     borderColor: 'rgba(var(--border),var(--tw-bg-opacity))',
+  },
+  '.border-placeholder': {
+    '--tw-border-opacity': '1',
+
+    borderColor: 'rgba(var(--placeholder),var(--tw-bg-opacity))',
+  },
+  '.border-primary': {
+    '--tw-border-opacity': '1',
+
+    borderColor: 'rgba(var(--primary),var(--tw-bg-opacity))',
+  },
+  '.border-secondary': {
+    '--tw-border-opacity': '1',
+
+    borderColor: 'rgba(var(--secondary),var(--tw-bg-opacity))',
   },
   //text classes
 
