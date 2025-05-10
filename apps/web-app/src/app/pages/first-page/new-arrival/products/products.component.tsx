@@ -1,17 +1,17 @@
-import image1 from 'apps/web-app/public/Recycle Boucle Knit Cardigan Pink.png';
-import image2 from 'apps/web-app/public/niceShoe.png';
-import image3 from 'apps/web-app/public/Rectangle 325.png';
-import image4 from 'apps/web-app/public/women.handbag.png';
 import { HomePageProduct } from '@code-dudes/fashion-ecommerce/web-app/components';
 export const Products = () => {
   const product1 = {
-    image: image1,
+    image: '/Recycle Boucle Knit Cardigan Pink.png',
     name: '21WN reversible angora cardigan',
     price: 120,
   };
-  const product2 = { ...product1, image: image2 };
-  const product3 = { ...product1, image: image3 };
-  const product4 = { ...product1, image: image4, name: 'Oblong bag' };
+  const product2 = { ...product1, image: '/niceShoe.png' };
+  const product3 = { ...product1, image: '/Rectangle 325.png' };
+  const product4 = {
+    ...product1,
+    image: '/women.handbag.png',
+    name: 'Oblong bag',
+  };
   return (
     <div className="mt-[6.95px] mx-4 flex gap-[13px] flex-wrap">
       <HomePageProduct className="gap-1 pb-[0.156px]" item={product1} />

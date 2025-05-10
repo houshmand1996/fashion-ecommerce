@@ -3,10 +3,12 @@ import {
   TailorsDummyIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Footer, Header } from '../layout';
 
 const NotFound = () => {
   return (
-    <div className="w-page h-[397px]">
+    <div className="w-page h-[797px]">
+      <Header />
       <p className="w-[249.22px] h-[32.576px] title uppercase text-center mt-[33.75px] ml-[63.72px] ">
         PAGE NOT FOUND
       </p>
@@ -32,6 +34,7 @@ const NotFound = () => {
           Home Page
         </p>
       </Button>
+      <Footer />
     </div>
   );
 };
