@@ -29,7 +29,7 @@ export const ProductLike = async ({
             <Link key={i} href={'/products' + '/' + ar.id}>
               <GridViewProduct
                 item={{
-                  image: process.env.NEXT_PUBLIC_SERVER + '/' + ar.image,
+                  image: ar.image,
                   description: ar.description,
                   name: ar.name,
                   price: ar.price,

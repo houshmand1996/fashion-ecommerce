@@ -1,9 +1,12 @@
+export { default as AddMessageIcon } from './add-message.icon';
 export { default as BackIcon } from './back.icon';
 export { default as BackwardArrowIcon } from './backward-arrow.icon';
+export { default as BookmarkIcon } from './bookmark.icon';
 export { default as BossIcon } from './boss.icon';
 export { default as BurberryIcon } from './burberry.icon';
 export { default as CallIcon } from './call.icon';
 export { default as CatierIcon } from './catier.icon';
+export { default as ChatMessageIcon } from './chat-message.icon';
 export { default as CloseIcon } from './close.icon';
 export { default as DeleteIcon } from './delete.icon';
 export { default as DoorToDoorDeliveryIcon } from './door-to-door-delivery.icon';

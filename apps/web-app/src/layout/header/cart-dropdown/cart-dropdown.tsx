@@ -70,7 +70,7 @@ const CartDropdown = ({ cartId }: { cartId: string | undefined }) => {
                       <Cart
                         item={{
                           description: ar.description,
-                          image: process.env.NEXT_PUBLIC_SERVER + ar.image,
+                          image: ar.image,
                           name: ar.name,
                           price: ar.price,
                           quantity: ar.qty,

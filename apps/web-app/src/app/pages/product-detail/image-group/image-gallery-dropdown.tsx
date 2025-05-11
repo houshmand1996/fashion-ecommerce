@@ -11,7 +11,6 @@ import {
   DialogTrigger,
 } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { Dropdown } from '@code-dudes/fashion-ecommerce/web-app/components';
-import { imageLoader } from 'apps/web-app/lib/image-loader';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -52,7 +51,6 @@ const ImageGalleryDropdown = ({ images }: { images: string[] }) => {
           className="absolute top-[79.31px] w-full h-[500px]"
           alt=""
           src={images[image]}
-          loader={imageLoader}
           width={500}
           height={500}
           loading="eager"
@@ -71,19 +69,20 @@ const ImageGalleryDropdown = ({ images }: { images: string[] }) => {
             />
           ))}
         </div>
-        <button
-          onClick={() => setImage(images.length > image + 1 ? image + 1 : 0)}
-        >
-          <Image
-            className="absolute top-[591.31px] w-full h-[500px]"
-            alt=""
-            src={images.length > image + 1 ? images[image + 1] : images[0]}
-            loader={imageLoader}
-            width={500}
-            height={500}
-            loading="eager"
-          />
-        </button>
+        {images.length > image + 1 && (
+          <button
+            onClick={() => setImage(images.length > image + 1 ? image + 1 : 0)}
+          >
+            <Image
+              className="absolute top-[591.31px] w-full h-[500px]"
+              alt=""
+              src={images.length > image + 1 ? images[image + 1] : images[0]}
+              width={500}
+              height={500}
+              loading="eager"
+            />
+          </button>
+        )}
       </DialogContent>
     </Dialog>
   );

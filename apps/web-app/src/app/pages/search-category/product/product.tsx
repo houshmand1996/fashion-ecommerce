@@ -37,7 +37,7 @@ export const Product = ({
               {isListView > 1 ? (
                 <FullProduct
                   item={{
-                    image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
+                    image: ar.image,
                     description: ar.description,
                     name: ar.name,
                     price: ar.price,
@@ -47,7 +47,7 @@ export const Product = ({
                 <ListViewProduct
                   iLoveProduct={iLoveProduct}
                   item={{
-                    image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
+                    image: ar.image,
                     description: ar.description,
                     name: ar.name,
                     price: ar.price,
@@ -58,7 +58,7 @@ export const Product = ({
                 <GridViewProduct
                   iLoveProduct={iLoveProduct}
                   item={{
-                    image: process.env['NEXT_PUBLIC_SERVER'] + '/' + ar.image,
+                    image: ar.image,
                     description: ar.description,
                     name: ar.name,
                     price: ar.price,

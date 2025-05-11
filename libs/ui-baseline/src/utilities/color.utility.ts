@@ -58,9 +58,24 @@ export const colorUtilities = {
 
   //border classes
   '.border-line': {
-    '--tw-bg-opacity': '1',
+    '--tw-border-opacity': '1',
 
     borderColor: 'rgba(var(--border),var(--tw-bg-opacity))',
+  },
+  '.border-placeholder': {
+    '--tw-border-opacity': '1',
+
+    borderColor: 'rgba(var(--placeholder),var(--tw-bg-opacity))',
+  },
+  '.border-primary': {
+    '--tw-border-opacity': '1',
+
+    borderColor: 'rgba(var(--primary),var(--tw-bg-opacity))',
+  },
+  '.border-secondary': {
+    '--tw-border-opacity': '1',
+
+    borderColor: 'rgba(var(--secondary),var(--tw-bg-opacity))',
   },
   //text classes
 
@@ -68,6 +83,12 @@ export const colorUtilities = {
     '--tw-text-opacity': '1',
 
     color: 'rgba(var(--off-white),var(--tw-text-opacity))',
+  },
+
+  '.text-input': {
+    '--tw-text-opacity': '1',
+
+    color: 'rgba(var(--input),var(--tw-text-opacity))',
   },
   '.text-body': {
     '--tw-text-opacity': '1',

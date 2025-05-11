@@ -2,6 +2,7 @@ import { Dispatch, FC, SetStateAction, SVGProps } from 'react';
 
 export type CardType = {
   name: string;
+  cvv: string;
   expMonth: string;
   expYear: string;
   cardNumber: string;
@@ -21,5 +22,6 @@ export type InputFormType = CardSliderType & {
     setExpYear: Dispatch<SetStateAction<string>>;
     setCardNumber: Dispatch<SetStateAction<string>>;
     setName: Dispatch<SetStateAction<string>>;
+    setCvv: Dispatch<SetStateAction<string>>;
   };
 };

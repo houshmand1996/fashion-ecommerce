@@ -50,4 +50,3 @@ vitest.config.*.timestamp*
 storybook-static
 libs/icon/src/monochromes/generated-components/
 .env*.local
-libs/server/src/lib/db

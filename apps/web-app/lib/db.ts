@@ -1,5 +1,14 @@
 'use server';
 import mysql from 'mysql2';
+export type Post = {
+  id: string;
+  title: string;
+  author: string;
+  publishTime: string;
+  image: string;
+  body: string;
+  tag?: string;
+};
 const pool = mysql
   .createPool({
     host: process.env['mysql_host'],
@@ -133,6 +142,7 @@ export const getCart = async (id: string | undefined) => {
       sql = `INSERT INTO shopping_cart (user_id) VALUES (?);`;
       const res = await pool.execute(sql, [id]);
       console.log('res insert into shopping_cart ', res);
+      return null;
     } else {
       sql = `select 
 	sci.id,
@@ -231,4 +241,18 @@ export const updateCartItem = async ({
 
   const sql = `UPDATE shopping_cart_item SET qty = ? WHERE id = ?`;
   const result = await pool.execute(sql, [qty, id]);
+};
+
+export const getPosts = async (id?: string | number) => {
+  const sql = `select  post_id as id,
+      post_title as title,
+      post_author as author,
+      post_tag as tag,
+      post_image as image,
+      post_body as body,
+      post_publish_time as publishTime from posts ${
+        id ? `where post_id=${id}` : ''
+      }`;
+  const [post] = id ? await pool.execute(sql, [id]) : await pool.execute(sql);
+  return post;
 };

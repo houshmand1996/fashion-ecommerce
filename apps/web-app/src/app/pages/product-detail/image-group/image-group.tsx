@@ -3,7 +3,6 @@ import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import Image from 'next/image';
 import { Dispatch, SetStateAction } from 'react';
 import ImageGalleryDropdown from './image-gallery-dropdown';
-import { imageLoader } from 'apps/web-app/lib/image-loader';
 
 export const ImageGroup = ({
   images,
@@ -20,13 +19,7 @@ export const ImageGroup = ({
       className="w-full flex flex-col justify-center items-center "
     >
       <div className="relative h-[460px] w-[343px] mt-5">
-        <Image
-          fill
-          alt=""
-          sizes="100vw"
-          src={images[picture]}
-          loader={imageLoader}
-        />
+        <Image fill alt="" sizes="100vw" src={images[picture]} />
 
         <ImageGalleryDropdown images={images} />
       </div>
