@@ -12,7 +12,7 @@ import {
 import { MediaPlayerIcon } from '@code-dudes/fashion-ecommerce/icon';
 export default function Index() {
   return (
-    <div id="homePage" className=" w-page h-[4200px] bg-off-white ">
+    <div id="homePage" className=" bg-off-white ">
       <Banner />
       <NewArrival />
       <Brand />

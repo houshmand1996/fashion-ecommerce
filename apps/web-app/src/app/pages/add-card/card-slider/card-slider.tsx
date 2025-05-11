@@ -1,5 +1,5 @@
 'use client';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC, useEffect, useState } from 'react';
 import { CardBackground } from './card-background-component';
 import { MasterCardGraphic } from '@code-dudes/fashion-ecommerce/icon';

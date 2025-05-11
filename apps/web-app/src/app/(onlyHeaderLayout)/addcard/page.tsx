@@ -1,6 +1,6 @@
 'use client';
 import { SeparatorIcon } from '@code-dudes/fashion-ecommerce/icon';
-import { Button } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { useState } from 'react';
 import { CardSlider, InputForm } from '../../pages';
 

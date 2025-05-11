@@ -1,4 +1,4 @@
-import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC, ReactNode, SVGProps } from 'react';
 
 type ContactCardType = {

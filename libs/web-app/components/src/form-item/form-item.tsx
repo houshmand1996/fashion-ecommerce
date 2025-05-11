@@ -1,4 +1,4 @@
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { cva } from 'class-variance-authority';
 import { ComponentPropsWithoutRef, forwardRef } from 'react';
 const ItemVariant = cva(

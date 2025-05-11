@@ -1,4 +1,4 @@
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC } from 'react';
 import { CardBackgroundType } from '../../add-card.type';
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { TextComponent } from './text-component';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { classNameType } from '../../../pages.type';
 
 export const Tab: FC<classNameType> = ({ className }) => {

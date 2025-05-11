@@ -8,10 +8,10 @@ import { IconList } from '../list/icon-list.component';
 import * as taliIcons from '@code-dudes/fashion-ecommerce/icon';
 
 const monochromeIcons = Object.fromEntries(
-  Object.entries(taliIcons).filter(([key]) => key.endsWith('Icon')),
+  Object.entries(taliIcons).filter(([key]) => key.endsWith('Icon'))
 );
 const graphicIcons = Object.fromEntries(
-  Object.entries(taliIcons).filter(([key]) => key.endsWith('Graphic')),
+  Object.entries(taliIcons).filter(([key]) => key.endsWith('Graphic'))
 );
 
 export const IconTabsComponent: FC<IconTabsPropType> = ({

@@ -10,11 +10,17 @@ export type HomePageProductProps = {
   className?: string;
 };
 export type FullProductProps = HomePageProductProps & {
-  item: HomePageProductProps['item'] & { details: string };
+  item: HomePageProductProps['item'] & { description: string };
 };
 export type ListViewProductProps = FullProductProps & {
   item: FullProductProps['item'] & { rating: string | number };
 };
 export type CartProps = FullProductProps & {
-  item: FullProductProps['item'] & { quantity: number | string };
+  item: FullProductProps['item'] & {
+    quantity: number | string;
+    color?: string;
+    size?: string;
+  };
+  onclickPlus?: any;
+  onclickMinus?: any;
 };

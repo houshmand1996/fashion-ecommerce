@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { cn } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC } from 'react';
 import { HomePageProductProps } from '../product.type';
 

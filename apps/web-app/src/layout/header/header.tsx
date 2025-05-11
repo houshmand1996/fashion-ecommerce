@@ -5,21 +5,22 @@ import {
   ShoppingBagIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
 import Link from 'next/link';
+import MenuDropdown from './menu-dropdown/menu-dropdown';
+import CartDropdown from './cart-dropdown/cart-dropdown';
+import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
+import { cookies } from 'next/headers';
+import SearchDropdown from './search-dropdown/search-dropdown';
 
 export const Header = () => {
+  const cartId = cookies().get('temp_user_id')?.value;
   return (
     <header className="bg-header w-full flex items-center min-h-[60px] min-w-[375px]">
-      <button className="w-[24px] h-[25px] ml-[16px] text-black outline-none ">
-        <MenuIcon className=" " />
-      </button>
+      <MenuDropdown />
       <Link href={'/'} className="text-black  ml-[102px]">
         <LogoIcon className="w-[78.347px] h-[31.094px]" />
       </Link>
-      <SearchIcon
-        className="text-black w-[24px] h-[24px]
-          ml-[67.92px] fill-none"
-      />
-      <ShoppingBagIcon className="w-6 h-6 text-black fill-none ml-4" />
+      <SearchDropdown />
+      <CartDropdown cartId={cartId} />
     </header>
   );
 };
