@@ -8,11 +8,16 @@ const SvgEllipse68: FC<SVGProps<SVGSVGElement>> = (
       width="1em"
       height="1em"
       fill="currentColor"
-      stroke="currentColor"
       viewBox="0 0 25 24"
       {...props}
     >
-      <circle cx={12.716} cy={12} r={11.5} />
+      <circle
+        cx={12.716}
+        cy={12}
+        r={11.5}
+        stroke="currentColor"
+        opacity={0.2}
+      />
     </svg>
   );
 };

@@ -1,8 +1,4 @@
 import { LogoIcon, SeparatorIcon } from '@code-dudes/fashion-ecommerce/icon';
-import image from '../../../../../public/Miroodles Sticker.png';
-import image1 from '../../../../../public/Miroodles Sticker(1).png';
-import image2 from '../../../../../public/Miroodles Sticker(2).png';
-import image3 from '../../../../../public/Miroodles Sticker(3).png';
 import Image from 'next/image';
 export const OpenFashion = () => {
   return (
@@ -26,7 +22,9 @@ export const OpenFashion = () => {
           <div className="w-[165px] h-[86.879px]  mt-[13.6px] ">
             <Image
               alt=""
-              src={image}
+              src={'public/Miroodles%20Sticker.png?'}
+              width={500}
+              height={500}
               className="w-[49.77px] h-[34.915px] ml-[59.5px] "
             />
             <p className="text-label text-center font-TenorSans text-[13px]/[20px] mt-[11.96px]">
@@ -36,7 +34,9 @@ export const OpenFashion = () => {
           <div className="w-[129px] h-[85.694px]  mt-[18.7px] mr-[10.1px]">
             <Image
               alt=""
-              src={image1}
+              src={'public/Miroodles%20Sticker(1).png'}
+              width={500}
+              height={500}
               className="w-[52.453px] h-[36.797px] ml-[32px] "
             />
             <p className="text-label text-center font-TenorSans text-[13px]/[20px] mt-[8.9px]">
@@ -46,7 +46,9 @@ export const OpenFashion = () => {
           <div className="w-[165px] h-[81.8px]  mt-[18.3px]">
             <Image
               alt=""
-              src={image2}
+              src={'public/Miroodles%20Sticker(2).png'}
+              width={500}
+              height={500}
               className="w-[54.353px] h-[38.13px] ml-[55.6px] "
             />
             <p className="text-label text-center font-TenorSans text-[13px]/[20px] ">
@@ -56,7 +58,9 @@ export const OpenFashion = () => {
           <div className="w-[155px] h-[81.8px]  mt-[18.3px]">
             <Image
               alt=""
-              src={image3}
+              src={'public/Miroodles%20Sticker(3).png'}
+              width={500}
+              height={500}
               className="w-[54.353px] h-[38.13px] ml-[55.6px] "
             />
             <p className="text-label text-center font-TenorSans text-[13px]/[20px] ">

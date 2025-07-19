@@ -6,7 +6,7 @@ export const Collection = () => {
         Collections
       </p>
       <div className="w-page h-60  mt-4 relative overflow-x-hidden">
-        <Image alt="" src={'/collection.png'} fill />
+        <Image alt="" src={'public/collection.png'} fill />
         <p className="w-[200px] h-[244.37px] flex-shrink-0 text-body font-BodoniModa italic text-[162.7px]/[244px] font-extrabold tracking-[-31.5px] absolute top-[22.74px]  left-[187.93px] opacity-50 mix-blend-multiply">
           10
         </p>
@@ -18,7 +18,7 @@ export const Collection = () => {
         </p>
       </div>
       <div className="w-[260px] h-[296px]  mt-[35.46px] relative">
-        <Image alt="" src={'/AutumnCollection.png'} fill />
+        <Image alt="" src={'public/AutumnCollection.png'} fill />
         <p className="w-[172.52px] h-[62.88px] flex-shrink-0 text-body font-BodoniModa text-[41.87px]/[62.8px] font-bold italic tracking-[-1px] opacity-80 mix-blend-multiply top-[32.67px] left-[85.83px] absolute">
           Autumn
         </p>

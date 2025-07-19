@@ -8,7 +8,6 @@ const SvgTwitter: FC<SVGProps<SVGSVGElement>> = (
       width="1em"
       height="1em"
       fill="currentColor"
-      stroke="currentColor"
       viewBox="0 0 25 25"
       {...props}
     >
