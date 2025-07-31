@@ -4,6 +4,7 @@ import { Group12Icon } from '@code-dudes/fashion-ecommerce/icon';
 import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { FC } from 'react';
 import { classNameType } from '../../pages.type';
+import Link from 'next/link';
 export const Banner: FC<classNameType> = ({ className }) => {
   return (
     <div
@@ -38,9 +39,10 @@ export const Banner: FC<classNameType> = ({ className }) => {
         <Button
           state={'primary'}
           size={'sm'}
+          asChild
           className="absolute top-[520px] left-[61px] rounded-[30px]  footer uppercase bg-opacity-40"
         >
-          Explore Collection
+          <Link href={'/collection'}>Explore Collection</Link>
         </Button>
       </div>
     </div>
