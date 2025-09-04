@@ -70,7 +70,7 @@ from
 JOIN product_item pi2 on
   pi2.product_id = p.product_id
 left JOIN product_image pi3 on
-  pi3.product_item_id = pi2.product_item_id 
+  pi3.product_item_id = pi2.product_item_id
 left join product_category pc on p.product_category_id = pc.product_category_id
 LEFT join product_category pc2 on pc2.product_category_id = pc.parent_category_id
 left join product_gender pg on pg.gender_id = pc.product_gender_id
@@ -86,7 +86,7 @@ ${limit ? `limit ${limit}` : ''}
 export const getProduct = async ({ id }: { id: number | string }) => {
   console.log('render getProduct');
 
-  const sql = `select 
+  const sql = `select
 	pv.product_item_id as id,
 	pv.product_variant_id ,
 	p.product_name as name ,
@@ -113,13 +113,13 @@ JOIN product_item pi2 on
 left JOIN color c on
 	c.color_id = pi2.color_id
 left JOIN product_image pi3 on
-	pi3.product_item_id = pi2.product_item_id 
-	left join product_variation pv ON pv.product_item_id = pi2.product_item_id 
-left join product_category pc on  p.product_category_id= pc.product_category_id 
+	pi3.product_item_id = pi2.product_item_id
+	left join product_variation pv ON pv.product_item_id = pi2.product_item_id
+left join product_category pc on  p.product_category_id= pc.product_category_id
 LEFT join product_category pc2 on pc2.product_category_id =pc.parent_category_id
 left join product_gender pg on gender_id = pc.product_gender_id left join size_option so on so.size_id =pv.size_id
 	left join product_care_variation pcv on pcv.product_id = p.product_id
-left join product_care pc3  on pc3.product_care_id = pcv.product_care_id 
+left join product_care pc3  on pc3.product_care_id = pcv.product_care_id
   ${id ? 'WHERE p.product_id=?' : ''}
   order by so.sort_order
   ;`;
@@ -144,7 +144,7 @@ export const getCart = async (id: string | undefined) => {
       console.log('res insert into shopping_cart ', res);
       return null;
     } else {
-      sql = `select 
+      sql = `select
 	sci.id,
 	sci.cart_id,
   pv.product_variant_id,
@@ -155,7 +155,7 @@ export const getCart = async (id: string | undefined) => {
   c.color_hex,
   so.size_name
 from
-	shopping_cart_item sci 
+	shopping_cart_item sci
 join product_variation pv on
 	pv.product_variant_id = sci.product_variant_id
 join product_item pi2 on
@@ -177,7 +177,7 @@ order by
 export const queryProduct = async ({ query }: { query: string }) => {
   console.log('render queryProduct');
 
-  const sql = `select 
+  const sql = `select
     p.product_id as id,
     p.product_name as name,
     p.description,
@@ -191,7 +191,7 @@ export const queryProduct = async ({ query }: { query: string }) => {
   JOIN product_item pi2 on
     pi2.product_id = p.product_id
   left JOIN product_image pi3 on
-    pi3.product_item_id = pi2.product_item_id 
+    pi3.product_item_id = pi2.product_item_id
   left join product_category pc on p.product_category_id = pc.product_category_id
   LEFT join product_category pc2 on pc2.product_category_id = pc.parent_category_id
   left join product_gender pg on pg.gender_id = pc.product_gender_id
@@ -255,4 +255,10 @@ export const getPosts = async (id?: string | number) => {
       }`;
   const [post] = id ? await pool.execute(sql, [id]) : await pool.execute(sql);
   return post;
+};
+export const getShipping = async () => {
+  const sql = `select  shipping_method_name as shippingName ,cost from shipping_method`;
+  const res = await pool.execute(sql);
+  if (res[0]) return res[0];
+  return null;
 };
