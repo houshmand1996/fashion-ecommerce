@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const page = () => {
   return (
-    <div className="flex flex-col items-center mt-[33.75px]">
+    <div className="flex  flex-col items-center mt-[33.75px]">
       <p className="text-center uppercase title">OUR Story</p>
       <SeparatorIcon className="w-[124.959px] h-[9.254px] text-label" />
       <p className="text-body text-[16px]/[20px] ml-[14.41px] mr-4">

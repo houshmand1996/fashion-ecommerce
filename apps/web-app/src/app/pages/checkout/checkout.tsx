@@ -11,8 +11,6 @@ import { useEffect, useRef, useState } from 'react';
 
 export const Checkout = ({ shipping }: { shipping: ShippingType }) => {
   const [shippingMethod, setShippingMethod] = useState('');
-  const [check, setCheck] = useState(false);
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
   return (
     <div className="select-none">
       <div className="w-page  ">
@@ -39,11 +37,34 @@ export const Checkout = ({ shipping }: { shipping: ShippingType }) => {
         <p className="text-[14px]/[16px] tracking-[1px] uppercase text-placeholder">
           Shipping Method
         </p>
-        <dialog ref={dialogRef} className="shadow-sm">
-          <button onClick={() => dialogRef.current?.close()}>here</button>
-        </dialog>
-        <button onClick={() => dialogRef.current?.showModal()}>
-          open dialog
+        <div
+          popover=""
+          id="popover"
+          className="w-full  bg-[#f9f9f9] [&:popover-open]:flex  flex-col"
+        >
+          {shipping &&
+            shipping.map((ar, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setShippingMethod(ar.shippingName);
+                }}
+              >
+                {ar.shippingName}
+              </button>
+            ))}
+        </div>
+        <button
+          popoverTarget="popover"
+          className="bg-[#f9f9f9] rounded-[44px] px-5 justify-between items-center  py-[13px] border-2 flex  "
+        >
+          <p className="w-[16px]/[22px] text-label">
+            {shipping ? shipping[0].shippingName : ''}
+          </p>
+          <div className="flex gap-[5.32px] items-center">
+            <p>{shipping ? shipping[0].cost : ''}</p>
+            <ForwardIcon className={cn('w-5 h-5 fill-none rotate-90')} />
+          </div>
         </button>
         {/* <div className="relative"> */}
         {/*   <input */}
