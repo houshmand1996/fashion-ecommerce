@@ -1,13 +1,12 @@
 'use client';
 import { PlusIcon, HeartIcon } from '@code-dudes/fashion-ecommerce/icon';
-import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
+import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
 import _ from 'lodash';
 import { ImageGroup } from './image-group';
 import { ProductVariation } from './product-variation';
 import { useSearchParams } from 'next/navigation';
 import { ProductInnerDetail } from './product-inner-detail';
 import { useEffect, useState } from 'react';
-import { ProductLike } from './product-like';
 import { postShoppingItem, updateCartItem } from 'apps/web-app/lib/db';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 export const ProductDetail = ({

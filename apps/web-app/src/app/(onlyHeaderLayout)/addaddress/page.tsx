@@ -1,5 +1,5 @@
 import { SeparatorIcon } from '@code-dudes/fashion-ecommerce/icon';
-import { Button, Input } from '@code-dudes/fashion-ecommerce/ui-kit ';
+import { Button, Input } from '@code-dudes/fashion-ecommerce/ui-kit';
 
 const page = () => {
   const name = [

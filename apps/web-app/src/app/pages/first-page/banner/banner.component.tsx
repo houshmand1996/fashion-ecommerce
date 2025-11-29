@@ -12,7 +12,7 @@ export const Banner: FC<classNameType> = ({ className }) => {
     >
       <div className="relative overflow-x-hidden">
         <Image
-          src={'/niceShoe.png'}
+          src={'public/niceShoe.png'}
           width={500}
           height={500}
           alt=""

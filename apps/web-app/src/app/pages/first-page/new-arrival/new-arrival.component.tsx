@@ -1,14 +1,16 @@
+'use client';
 import {
   ForwardArrowIcon,
   SeparatorIcon,
 } from '@code-dudes/fashion-ecommerce/icon';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Button, cn } from '@code-dudes/fashion-ecommerce/ui-kit';
-import { Tab } from './tab';
 
 import { classNameType } from '../../pages.type';
 import { Products } from './products';
+import { Tab } from 'apps/web-app/src/app/pages/first-page/new-arrival/tab';
 export const NewArrival: FC<classNameType> = ({ className }) => {
+  const [category, setCategory] = useState('');
   return (
     <div className={cn('w-page h-[736px] flex-shrink-0', className)}>
       <div
@@ -20,8 +22,8 @@ export const NewArrival: FC<classNameType> = ({ className }) => {
         </p>
         <SeparatorIcon className="w-[124.96px] h-[9.25] text-label" />
       </div>
-      <Tab className="" />
-      <Products />
+      <Tab category={category} setCategory={setCategory} className="" />
+      <Products category={category} />
       <Button
         state={'secondary'}
         className="text-center gap-2 p-3 ml-[110px] mt-[27.84px] mb-[15px]"

@@ -1,13 +1,7 @@
-import {
-  LogoIcon,
-  MenuIcon,
-  SearchIcon,
-  ShoppingBagIcon,
-} from '@code-dudes/fashion-ecommerce/icon';
+import { LogoIcon, MenuIcon } from '@code-dudes/fashion-ecommerce/icon';
 import Link from 'next/link';
 import MenuDropdown from './menu-dropdown/menu-dropdown';
 import CartDropdown from './cart-dropdown/cart-dropdown';
-import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { cookies } from 'next/headers';
 import SearchDropdown from './search-dropdown/search-dropdown';
 
@@ -20,7 +14,7 @@ export const Header = () => {
         <LogoIcon className="w-[78.347px] h-[31.094px]" />
       </Link>
       <SearchDropdown />
-      <CartDropdown cartId={cartId} />
+      {cartId ? <CartDropdown cartId={cartId} /> : <MenuIcon />}
     </header>
   );
 };
