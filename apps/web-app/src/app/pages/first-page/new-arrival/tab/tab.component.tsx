@@ -1,10 +1,20 @@
-import { FC } from 'react';
+'use client';
+import { Dispatch, FC, SetStateAction, useEffect } from 'react';
+
 import { TextComponent } from './text-component';
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { classNameType } from '../../../pages.type';
+import Link from 'next/link';
 
-export const Tab: FC<classNameType> = ({ className }) => {
-  const tabLink = ['Apparel', 'Dress', 'Tshirt', 'bag'];
+type TabType = classNameType & {
+  category: string;
+  setCategory: Dispatch<SetStateAction<string>>;
+};
+export const Tab: FC<TabType> = ({ className, category, setCategory }) => {
+  const tabLink = ['All', 'Apparel', 'Dress', 'Tshirt', 'bag'];
+  useEffect(() => {
+    setCategory(tabLink[0]);
+  }, []);
   return (
     <div
       id="tab"
@@ -13,11 +23,18 @@ export const Tab: FC<classNameType> = ({ className }) => {
         className
       )}
     >
-      <TextComponent className="text-[#212806]">All</TextComponent>
       {tabLink.map((ar) => (
-        <TextComponent className="text-placeholder opacity-80" key={ar}>
+        <button
+          id="tabButton"
+          className={cn(
+            'text-center font-TenorSans text-sm/[14.84px] tracking-[1px] ',
+            ar == category ? 'text-[#212806]' : 'text-placeholder opacity-80 '
+          )}
+          key={ar}
+          onClick={() => setCategory(ar)}
+        >
           {ar}
-        </TextComponent>
+        </button>
       ))}
     </div>
   );

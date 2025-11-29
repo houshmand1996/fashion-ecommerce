@@ -13,11 +13,8 @@ const getData = async ({ cartId }: { cartId: string }) => {
 
   return data;
 };
-const CartDropdown = ({ cartId }: { cartId: string | undefined }) => {
+const CartDropdown = ({ cartId }: { cartId: string }) => {
   const queryClient = useQueryClient();
-  if (!cartId) {
-    return <></>;
-  }
   const { data } = useQuery({
     queryKey: ['cart', cartId],
     queryFn: async () => await getData({ cartId }),

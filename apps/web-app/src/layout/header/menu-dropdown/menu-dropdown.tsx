@@ -1,5 +1,4 @@
 'use client';
-import useSWR from 'next';
 import {
   SeparatorIcon,
   MenuIcon,
@@ -109,7 +108,7 @@ const MenuDropdown = () => {
         <SeparatorIcon
           className={cn(
             'absolute top-0 text-secondary w-[71px]',
-            active == 1 ? 'ml-[116px]' : active == 2 && 'ml-52'
+            active == 1 ? 'ml-[116px]' : active == 2 && 'ml-52',
           )}
         />
         <p className="bg-[#3333] h-[1px] opacity-20 w-3/4 absolute top-[5px]" />
