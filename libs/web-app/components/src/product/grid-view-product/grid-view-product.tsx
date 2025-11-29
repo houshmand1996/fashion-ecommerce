@@ -7,8 +7,9 @@ import { FullProductProps } from '../product.type';
 export const GridViewProduct: FC<
   FullProductProps & {
     iLoveProduct?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+    darkTheme?: boolean;
   }
-> = ({ item, className, iLoveProduct }) => {
+> = ({ item, className, iLoveProduct, darkTheme }) => {
   const { image, name, price, description } = item;
   return (
     <div className={cn('inline-flex flex-col item-start gap-2', className)}>
@@ -27,9 +28,21 @@ export const GridViewProduct: FC<
         />
       </div>
       <div className="flex pl-1 flex-col items-start gap-1">
-        <div className="flex w-[159px] flex-col items-start body-small truncate">
-          <p className=" h-[15px] text-black ">{name}</p>
-          <p className="w-[157px] h-[18px] lowercase  text-label ">
+        <div className=" flex w-[159px] flex-col items-start body-small truncate">
+          <p
+            className={cn(
+              ' h-[15px]  ',
+              darkTheme ? 'text-off-white' : 'text-black'
+            )}
+          >
+            {name}
+          </p>
+          <p
+            className={cn(
+              'w-[157px] h-[18px] lowercase   ',
+              darkTheme ? 'text-input opacity-50' : 'text-lable'
+            )}
+          >
             {description}
           </p>
         </div>

@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "strict": true,
+    "allowImportingTsExtensions":true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
