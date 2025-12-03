@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import type { IconsProps } from './icons.component';
 import { IconsComponent } from './icons.component';
