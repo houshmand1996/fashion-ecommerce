@@ -12,6 +12,20 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    loader: 'custom',
+    loaderFile: './lib/image-loader.ts',
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ik.imagekit.io',
+      },
+    ],
+  },
 };
 
 const plugins = [
