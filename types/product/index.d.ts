@@ -35,4 +35,8 @@ declare namespace modules {
     product_care_icon: string | null;
     variation_name: string | null;
   }
+  interface shippingMethod {
+    shippingName: string;
+    cost: number | string;
+  }
 }

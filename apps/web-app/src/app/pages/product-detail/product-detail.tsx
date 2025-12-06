@@ -1,4 +1,5 @@
 'use client';
+import { toast, Toaster } from 'react-hot-toast';
 import { PlusIcon, HeartIcon } from '@code-dudes/fashion-ecommerce/icon';
 import { Button } from '@code-dudes/fashion-ecommerce/ui-kit';
 import _ from 'lodash';
@@ -8,7 +9,9 @@ import { useSearchParams } from 'next/navigation';
 import { ProductInnerDetail } from './product-inner-detail';
 import { useEffect, useState } from 'react';
 import { postShoppingItem, updateCartItem } from 'apps/web-app/lib/db';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { getQueryClient } from 'apps/web-app/src/app/get-query-client';
+import { getData } from 'apps/web-app/src/app/getData';
 export const ProductDetail = ({
   product,
   colors,
@@ -22,11 +25,11 @@ export const ProductDetail = ({
   care: { description: string; icon: string }[];
   userId: string | undefined;
 }) => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData(['cart', userId]) as
-    | modules.IShoppingCart[]
-    | null;
-
+  const queryClient = getQueryClient();
+  const { data, error, isSuccess } = useQuery({
+    queryKey: ['cart', userId],
+    queryFn: () => getData({ cartId: userId || '' }),
+  });
   const [picture, setPicture] = useState(0);
   const searchParams = useSearchParams();
 
@@ -35,15 +38,24 @@ export const ProductDetail = ({
   const productIndex = product.find((ar) => ar.product_variant_id == variation);
   const color = productIndex?.color_name;
   const product_variation = _.uniqBy(product, 'product_variant_id');
+  const som = data?.find((item) => item.product_variant_id === variation);
   const { mutate: updateItem } = useMutation({
     mutationKey: ['cart', userId],
 
     mutationFn: updateCartItem,
     onSuccess: () => {
-      // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', userId] });
+      if (Number(som?.qty) >= 0 && Number(som?.qty) < 1) {
+        toast('product add successfully to your bag', {
+          duration: 2000,
+          position: 'top-center',
+        });
+      }
+      console.log(som, 'som');
     },
   });
+  console.log(product_variation);
+
   const { mutate: insertItem } = useMutation({
     mutationKey: ['cart', userId],
 
@@ -51,6 +63,10 @@ export const ProductDetail = ({
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', userId] });
+      toast('product add successfully to your bag', {
+        duration: 5000,
+        position: 'top-center',
+      });
     },
   });
   const totalQty = product_variation.reduce((per, ar) => per + ar.stock, 0);
@@ -64,6 +80,7 @@ export const ProductDetail = ({
   )
     return (
       <div className="w-page h-[1549px]">
+        <Toaster />
         <ImageGroup images={images} picture={picture} setPicture={setPicture} />
         <ProductVariation
           variation={variation}
@@ -74,9 +91,6 @@ export const ProductDetail = ({
           className="w-full justify-between  pl-4 pr-[34px] h-14"
           onClick={() => {
             if (totalQty > 0) {
-              const som = data?.find(
-                (item) => item.product_variant_id === variation
-              );
               if (som) {
                 updateItem({ qty: Number(som.qty) + 1, id: Number(som.id) });
               } else {

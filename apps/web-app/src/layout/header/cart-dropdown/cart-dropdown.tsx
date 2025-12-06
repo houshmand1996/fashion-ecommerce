@@ -8,11 +8,8 @@ import {
 import { getCart, updateCartItem } from 'apps/web-app/lib/db';
 import Link from 'next/link';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-const getData = async ({ cartId }: { cartId: string }) => {
-  const data = (await getCart(cartId)) as modules.IShoppingCart[] | null;
+import { getData } from 'apps/web-app/src/app/getData';
 
-  return data;
-};
 const CartDropdown = ({ cartId }: { cartId: string }) => {
   const queryClient = useQueryClient();
   const { data } = useQuery({
@@ -24,7 +21,6 @@ const CartDropdown = ({ cartId }: { cartId: string }) => {
 
     mutationFn: updateCartItem,
     onSuccess: () => {
-      // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', cartId] });
     },
   });

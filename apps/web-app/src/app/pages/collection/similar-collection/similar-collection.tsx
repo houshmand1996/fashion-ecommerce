@@ -1,4 +1,4 @@
-'use client';
+'se client';
 import { cn } from '@code-dudes/fashion-ecommerce/ui-kit';
 import { CollectionType } from 'apps/web-app/src/app/(generalLayout)/collection/page';
 import Image from 'next/image';
