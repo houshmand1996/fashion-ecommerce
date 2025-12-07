@@ -4,7 +4,7 @@ const DomParser = ({
   parseTag,
   className,
 }: {
-  parseTag: string | JSX.Element | JSX.Element[];
+  parseTag: string;
   className?: string;
 }) => {
   const [isClient, setIsClient] = useState(false);

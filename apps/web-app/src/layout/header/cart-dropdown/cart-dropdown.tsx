@@ -8,11 +8,8 @@ import {
 import { getCart, updateCartItem } from 'apps/web-app/lib/db';
 import Link from 'next/link';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-const getData = async ({ cartId }: { cartId: string }) => {
-  const data = (await getCart(cartId)) as modules.IShoppingCart[] | null;
+import { getData } from 'apps/web-app/src/app/getData';
 
-  return data;
-};
 const CartDropdown = ({ cartId }: { cartId: string }) => {
   const queryClient = useQueryClient();
   const { data } = useQuery({
@@ -24,7 +21,6 @@ const CartDropdown = ({ cartId }: { cartId: string }) => {
 
     mutationFn: updateCartItem,
     onSuccess: () => {
-      // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['cart', cartId] });
     },
   });
@@ -44,7 +40,7 @@ const CartDropdown = ({ cartId }: { cartId: string }) => {
       triggerChildren={
         <ShoppingBagIcon className=" text-black fill-none h-6 w-6 ml-4" />
       }
-      className="h-full flex flex-1 flex-col justify-between"
+      className="h-full flex flex-1 flex-col justify-between select-none"
       dialogClassName="flex-col open:flex "
     >
       <div className="h-full flex-1 flex flex-col">

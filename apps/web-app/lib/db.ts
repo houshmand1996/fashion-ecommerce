@@ -1,5 +1,4 @@
 'use server';
-import { result } from 'lodash';
 import mysql from 'mysql2';
 export type Post = {
   id: string;
@@ -352,5 +351,10 @@ ${limit ? `limit ${limit}` : ''}
   if (resualt[0]) {
     return resualt[0];
   }
+};
+export const getShipping = async () => {
+  const sql = `select  shipping_method_name as shippingName ,cost from shipping_method`;
+  const res = await pool.execute(sql);
+  if (res[0]) return res[0];
   return null;
 };

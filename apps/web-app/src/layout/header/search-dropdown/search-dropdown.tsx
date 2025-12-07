@@ -76,7 +76,7 @@ const SearchDropdown = () => {
           {popularTrend.map((ar, i) => (
             <DialogClose asChild className="normal-case" key={i}>
               <Link
-                className="text-[16px]/[36.5px]"
+                className="text-[16px]/[36.5px] w-full text-start items-start !justify-start"
                 href={'/search' + `?query=` + ar}
               >
                 {ar}

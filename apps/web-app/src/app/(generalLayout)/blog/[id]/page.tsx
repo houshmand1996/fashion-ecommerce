@@ -35,7 +35,7 @@ const Page = async ({ params }: paramsProp) => {
             {newPost.title}
           </p>
           <DomParser
-            parseTag={parseTag}
+            parseTag={parseTag as string}
             className="body-medium text-body  ml-[19.92px] mr-[46.07px] mt-[9px] first-child:mb-[10.79px] even-child:ml-[140px] even-child:fill-none even-child:text-[#888888] [&>svg>*:first-child]:fill-[#888888] "
           />
         </div>
