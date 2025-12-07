@@ -4,14 +4,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "npx nx dev web-app",
-    "web-app:build": "npx nx build web-app",
+    "build": "npx nx build web-app",
     "web-app:targets": "npx nx show project web-app",
     "storybook": "nx storybook storybook",
     "icon": "nx generate-graphics icon && nx generate-monochromes icon",
     "icon:story": "nx storybook icon",
     "ui:build": " nx build ui-baseline  --configuration=development"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.8",
     "@radix-ui/react-compose-refs": "^1.1.2",
@@ -105,6 +105,9 @@
     "overrides": {
       "@types/react": "19.2.7",
       "@types/react-dom": "19.2.3"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "unrs-resolver"
+    ]
   }
 }

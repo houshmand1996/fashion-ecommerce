@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const RefProvider =
-  React.createContext<React.RefObject<HTMLDialogElement> | null>(null);
+  React.createContext<React.RefObject<HTMLDialogElement | null> | null>(null);
 export const useStableDialogRef = () => {
   const ref = React.useContext(RefProvider);
   if (!ref) throw Error('wtf');

@@ -53,7 +53,6 @@ export const ProductDetail = ({
       }
     },
   });
-  console.log(product_variation);
 
   const { mutate: insertItem } = useMutation({
     mutationKey: ['cart', userId],

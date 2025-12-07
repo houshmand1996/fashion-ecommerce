@@ -347,7 +347,6 @@ ${limit ? `limit ${limit}` : ''}
 ;`;
 
   const resualt = await pool.execute(sql, params);
-  console.log(sql, resualt);
   if (resualt[0]) {
     return resualt[0];
   }
@@ -356,5 +355,48 @@ export const getShipping = async () => {
   const sql = `select  shipping_method_name as shippingName ,cost from shipping_method`;
   const res = await pool.execute(sql);
   if (res[0]) return res[0];
+  return null;
+};
+export const getCollections = async (id?: string) => {
+  let sql = '';
+  if (!id) {
+    sql = `select collection_id as collectionId,collection_name as collectionName , collection_banner as banner from collection`;
+  } else {
+    sql = `
+select
+p.product_id as id,
+c.collection_id as collectionId,
+    collection_name as collectionName,
+    collection_banner as banner,
+    p.product_name as name,
+    p.description,
+    pi2.sales_price as price,
+    pi3.image_path as image
+from collection c
+join collection_variant cv on c.collection_id = cv.collection_id
+join product_item pi2 on pi2.product_item_id = cv.product_item_id
+join products p on pi2.product_id = p.product_id
+join product_image pi3 on pi3.product_item_id = pi2.product_item_id
+`;
+  }
+
+  const result = id ? await pool.execute(sql, [id]) : await pool.execute(sql);
+  if (result[0]) {
+    return result[0];
+  }
+  return null;
+};
+export const getRandomCollection = async ({
+  id,
+}: {
+  id?: string;
+  limit?: string;
+}) => {
+  const sql = `select collection_id as collectionId ,collection_banner as banner,collection_name as collectionName from collection ${
+    id ? 'where collection_id!=? ' : ''
+  };`;
+
+  const result = id ? await pool.execute(sql, [id]) : await pool.execute(sql);
+  if (result[0]) return result[0];
   return null;
 };

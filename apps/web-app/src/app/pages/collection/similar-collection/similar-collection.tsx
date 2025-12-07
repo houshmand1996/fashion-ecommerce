@@ -10,9 +10,6 @@ export const SimilarCollection = ({
   collectionLike: CollectionType[] | null;
 }) => {
   const [index, setIndex] = useState(0);
-  useEffect(() => {
-    console.log(index);
-  }, [index]);
   const route = useRouter();
   if (!collectionLike) return <></>;
   return (

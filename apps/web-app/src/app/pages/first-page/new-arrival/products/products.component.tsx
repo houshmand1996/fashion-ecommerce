@@ -24,9 +24,6 @@ export const Products = ({ category }: { category?: string }) => {
             : null,
       })) as modules.BProduct[] | null,
   });
-  useEffect(() => {
-    console.log(category, data);
-  }, [category, data]);
 
   return (
     <div className="mt-[6.95px] mx-4 flex gap-[13px] flex-wrap">

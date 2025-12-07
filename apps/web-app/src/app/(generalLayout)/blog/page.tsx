@@ -14,7 +14,6 @@ const page = async () => {
     console.log(err);
     return null;
   })) as Post[] | null;
-  console.log(post, 'post');
 
   return (
     <div className="flex flex-col items-center">

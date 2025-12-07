@@ -14,7 +14,6 @@ const page = async ({ params }: { params: { id: string } }) => {
   const collectionLike = (await getRandomCollection({
     id,
   })) as CollectionType[] | null;
-  console.log(collectionLike);
 
   const name = collection && collection[0]?.collectionName.split(' ');
   if (collection)

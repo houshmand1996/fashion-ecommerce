@@ -4,7 +4,6 @@ const page = async () => {
   const shippingMethod = (await getShipping()) as
     | modules.shippingMethod[]
     | null;
-  console.log(shippingMethod);
 
   return <Checkout shipping={shippingMethod} />;
 };
