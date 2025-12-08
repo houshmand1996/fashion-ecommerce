@@ -1,4 +1,5 @@
 'use server';
+import { log } from 'console';
 import mysql from 'mysql2';
 export type Post = {
   id: string;
@@ -45,7 +46,11 @@ group by p.product_id
 order by RAND()
 ${limit ? `limit ${limit}` : ''}
 ;`;
-  const res = await pool.execute(sql, [limit]);
+  const res = await pool.execute(sql, [limit]).catch((err) => {
+    console.log(err);
+    return null;
+  });
+  if (!res) return null;
   if (res[0]) return res[0];
   else return null;
 };
