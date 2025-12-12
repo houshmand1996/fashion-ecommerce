@@ -385,8 +385,16 @@ join product_image pi3 on pi3.product_item_id = pi2.product_item_id
 `;
   }
 
-  const result = id ? await pool.execute(sql, [id]) : await pool.execute(sql);
-  if (result[0]) {
+  const result = id
+    ? await pool.execute(sql, [id]).catch((e) => {
+        console.log(e);
+        return null;
+      })
+    : await pool.execute(sql).catch((err) => {
+        console.log(err);
+        return null;
+      });
+  if (result && result[0]) {
     return result[0];
   }
   return null;

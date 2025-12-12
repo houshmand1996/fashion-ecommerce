@@ -31,10 +31,10 @@ export const Checkout = ({
   }, [shipment.shippingMethod]);
   return (
     <div
-      className="flex-1 w-full h-full flex flex-col justify-between"
+      className="flex-1 w-full h-full  flex flex-col justify-between gap-10"
       id="firstElement"
     >
-      <div className="  select-none">
+      <div className="  select-none ">
         <div className="w-page  ">
           <p className="title w-[225.508px] h-[32.576px] text-black uppercase mt-[33.75px] ml-[75.58px] text-center">
             Checkout
@@ -161,11 +161,7 @@ export const Checkout = ({
           </Link>
         </div>
       </div>
-      <Button
-        size={'lg'}
-        state={'primary'}
-        className="absolute bottom-0 left-0 w-full"
-      >
+      <Button size={'lg'} state={'primary'} className="">
         <ShoppingBagIcon className="w-5 h-5 fill-none" />
         place order
       </Button>

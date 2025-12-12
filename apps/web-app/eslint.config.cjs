@@ -1,28 +1,12 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const js = require('@eslint/js');
-const { fixupConfigRules } = require('@eslint/compat');
+const nextEslintPluginNext = require('@next/eslint-plugin-next');
 const nx = require('@nx/eslint-plugin');
 const baseConfig = require('../../eslint.config.cjs');
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-});
-
-module.exports = [
-  ...fixupConfigRules(compat.extends('next')),
-
-  ...fixupConfigRules(compat.extends('next/core-web-vitals')),
-
+module.export = [
+  { plugins: { '@next/next': nextEslintPluginNext } },
   ...baseConfig,
   ...nx.configs['flat/react-typescript'],
   {
-    ignores: ['.next/**/*'],
-  },
-  {
-    rules: {
-      'no-unused-vars': 0,
-      '@typescript-eslint/no-unused-vars': 0,
-    },
+    ignores: ['.next/**/*', '**/out-tsc'],
   },
 ];
